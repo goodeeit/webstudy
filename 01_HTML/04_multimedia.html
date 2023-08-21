@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!--
+    이미지
+    1. 인라인 요소
+    2. 형식
+      <img> 또는 <img/>
+    3. 주요 속성
+      1) alt : 이미지가 없는 경우에 이미지 대신 나타나는 텍스트 정보
+      2) src : 이미지의 경로를 작성
+        (1) 절대경로 : 사용 불가(주의!)
+        (2) 상대경로 : 사용 가능
+          ① 현재 디렉터리 : .
+          ② 상위 디렉터리 : ..
+      3) width  : 이미지 너비 지정 (너비를 조정하면 높이도 자동 조정된다.)
+      4) height : 이미지 높이 지정 (높이를 조정하면 너비도 자동 조정된다.)
+  -->
+
+  <!-- 절대 경로 -->
+  <p>
+    <img alt="절대 경로는 원래 안 나옵니다." src="C:/GDJ69/images/404.jpg">
+  </p>
+
+  <!-- 상대 경로 -->
+  <!--
+    C:/GDJ69/webstudy/01_HTML/04_multimedia.html 에서
+    C:/GDJ69/images/animal1.jpg 이미지 포함하기
+    C:
+      ㄴGDJ69       : 상위 상위 디렉터리 (../..)
+        ㄴimages    : 이미지 디렉터리    (../../images)
+        ㄴwebstudy  : 상위 디렉터리      (..)
+          ㄴ01_HTML : 현재 디렉터리
+  -->
+  <p>
+    <img alt="여우" src="../../images/animal1.jpg" width="200px">
+  </p>
+
+</body>
+</html>
