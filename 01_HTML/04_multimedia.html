@@ -31,15 +31,72 @@
   <!-- 상대 경로 -->
   <!--
     C:/GDJ69/webstudy/01_HTML/04_multimedia.html 에서
-    C:/GDJ69/images/animal1.jpg 이미지 포함하기
+    C:/GDJ69/assets/image/animal1.jpg 이미지 포함하기
     C:
-      ㄴGDJ69       : 상위 상위 디렉터리 (../..)
-        ㄴimages    : 이미지 디렉터리    (../../images)
+      ㄴGDJ69       : 상위x2 디렉터리    (../..)
+        ㄴassets    : 정적 자원 디렉터리 (../../assets)
+          ㄴimage   : 이미지 디렉터리    (../../assets/image)
         ㄴwebstudy  : 상위 디렉터리      (..)
           ㄴ01_HTML : 현재 디렉터리
   -->
   <p>
-    <img alt="여우" src="../../images/animal1.jpg" width="200px">
+      <img alt="여우" src="../../assets/image/" width="200px">
+  </p>
+
+  <hr>
+
+  <!--
+    오디오
+    1. 인라인 요소
+    2. 형식
+      <audio>
+        <source src="오디오경로">
+      </audio>
+    3. audio 태그 주요 속성
+         속성명   | 속성값   | 의미
+      1) controls | controls | 오디오 컨트롤 패널 생성(재생, 중지, 소리조절 등)
+      2) autoplay | autoplay | 오디오 자동 재생
+      3) loop     | loop     | 오디오 반복 재생
+      4) muted    | muted    | 음소거
+    4. audio 미디어 타입(MIME)
+      1) MP3 : audio/mp3
+      2) WAV : audio/wav
+      3) OGG : audio/ogg
+  -->
+  <p>
+    <audio controls="controls" autoplay="autoplay">
+      <source src="../../assets/audio/t-rex-roar.mp3" type="audio/mp3">
+      브라우저가 &lt;audio&gt; 태그를 지원하지 않는다면 내가 보일 것이다.
+    </audio>
+  </p>
+
+  <hr>
+
+  <!--
+    비디오
+    1. 인라인 요소
+    2. 형식
+      <video>
+        <source src="비디오경로">
+      </video>
+    3. video 태그 주요 속성
+         속성명   | 속성값   | 의미
+      1) controls | controls | 비디오 컨트롤 패널 생성(재생, 중지, 소리조절 등)
+      2) autoplay | autoplay | 비디오 자동 재생
+      3) loop     | loop     | 비디오 반복 재생
+      4) muted    | muted    | 음소거
+      5) width    | 픽셀값   | 비디오 너비
+    4. video 미디어 타입(MIME)
+      1) MP4  : video/mp4
+      2) WEBM : video/webm
+      3) OGG  : video/ogg
+  -->
+  <p>
+    <!-- 속성명과 속성값이 동일한 경우 속성값은 생략할 수 있다. -->
+    <video controls autoplay width="300px">
+      <source src="../../assets/video/flower.webm" type="video/webm">
+      브라우저가 &lt;video&gt; 태그를 지원하지 않는다면 내가 보일 것이다.
+    </video>
   </p>
 
 </body>
