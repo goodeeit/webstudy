@@ -174,7 +174,43 @@
     1. 입력 요소(input, textarea, select 등)들을 서버측으로 보내기 위해서 사용한다.
     2. <form> 태그 내부에 서버측으로 보낼 입력 요소들을 배치한다.
     3. <form> 태그 내부의 모든 입력 요소들을 서버측으로 보내는 것을 "서브밋(submit)"이라고 한다.
+    4. 형식
+      <form action="서브밋경로" method="GET">
+        <input>
+        <textarea></textarea>
+        <select></select>
+        <button></button>
+      </form>
+    5. 주요 속성
+         Name     | Value    | Describe
+      1) action   |          | 입력 요소들의 값을 보낼 서버의 경로를 작성
+      2) method   | GET/POST | 요청 메소드
+    6. 요청 메소드
+      1) GET
+        (1) 디폴트, method 속성 생략 가능
+        (2) 입력 요소들의 이름(name)과 값(value)을 주소(URL)의 파라미터로 변환하여 전송하는 방식
+        (3) 처리가 빠르고 보안에 취약하다.
+      2) POST
+        (1) 입력 요소들을 요청 본문에 포함시켜서 전송하는 방식
+        (2) 처리가 느리고 보안이 우수하다.
   -->
+  <!--
+    버튼 종류
+    1. 서브밋
+      1) <button type="submit">텍스트</button>
+      2) <input type="submit" value="텍스트">
+    2. 일반
+      <input type="button" value="텍스트">
+    3. 초기화
+      <input type="reset" value="텍스트">
+  -->
+  <p>
+    <form action="https://www.google.com/search" method="get">
+      <input type="hidden" name="sca_esv" value="559020407">
+      <input type="text" name="q" placeholder="검색어를 입력하세요">
+      <button type="submit">검색</button>
+    </form>
+  </p>
 
 </body>
 </html>
