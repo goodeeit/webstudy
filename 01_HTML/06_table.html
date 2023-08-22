@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!--
+    테이블
+    1. 블록 요소
+    2. 표를 만든다.
+    3. 형식
+      <table>
+
+      </table>
+  -->
+
+  <!--
+    테이블 구역
+    1. 표를 구성하는 3개 구역이 있다.
+    2. 모든 구역은 생략할 수 있다. 생략하더라도 <tbody> 태그는 자동으로 사용된다.
+    3. 형식
+      <table>
+        <thead></thead>
+        <tbody></tbody>
+        <tfoot></tfoot>
+      </table>
+  -->
+
+  <!--
+    행
+    1. 테이블의 행을 만든다.
+    2. 테이블의 구역마다 행을 만든다.
+    3. 형식
+      <table>
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+        </tbody>
+        <tfoot>
+          <tr></tr>
+        </tfoot>
+      </table>
+  -->
+
+  <!--
+    열
+    1. 테이블의 열을 만든다.
+    2. 행을 구성하는 열을 만든다.
+    3. 형식
+      <table>
+        <thead>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+  -->
+
+  <table border="1">
+    <thead>
+      <tr>
+        <td>제품명</td>
+        <td>입고</td>
+        <td>출고</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>새우깡</td>
+        <td>100</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>신짱구</td>
+        <td>100</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>양파링</td>
+        <td>100</td>
+        <td>50</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>총합계</td>
+        <td>300</td>
+        <td>150</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <hr>
+
+  <!--
+    셀 병합
+    1. <td> 태그에 병합 속성을 추가한다.
+    2. 병합 속성
+      1) colspan : 열 병합, 좌우 셀을 병합
+      2) rowspan : 행 병합, 상하 셀을 병합
+  -->
+
+  <!-- 열 병합 : 좌우 셀을 병합 -->
+  <table border="1">
+    <tbody>
+      <tr>
+        <td>1열</td>
+        <td>2열</td>
+        <td>3열</td>
+      </tr>
+      <tr>
+        <td>1열</td>
+        <td colspan="2">2열</td>
+      </tr>
+      <tr>
+        <td colspan="3">1열</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 행 병합 : 상하 셀을 병합 -->
+  <table border="1">
+    <tbody>
+      <tr>
+        <td>1행</td>
+        <td>1행</td>
+        <td rowspan="3">1행</td>
+      </tr>
+      <tr>
+        <td>2행</td>
+        <td rowspan="2">2행</td>
+      </tr>
+      <tr>
+        <td>3행</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- 이미지가 포함된 테이블 -->
+  <table>
+    <tbody>
+      <tr>
+        <td><img src="../../assets/image/fruit1.jpg" alt="베리" width="192px" height="128px"></td>
+        <td><img src="../../assets/image/fruit2.jpg" alt="아보카도" width="192px" height="128px"></td>
+        <td><img src="../../assets/image/fruit3.jpg" alt="바나나" width="192px" height="128px"></td>
+        <td><img src="../../assets/image/fruit4.jpg" alt="라임" width="192px" height="128px"></td>
+        <td><img src="../../assets/image/fruit5.jpg" alt="블루베리" width="192px" height="128px"></td>
+      </tr>
+      <tr>
+        <td>1,000원</td>
+        <td>2,000원</td>
+        <td>3,000원</td>
+        <td>4,000원</td>
+        <td>5,000원</td>
+      </tr>
+      <tr>
+        <td>베리</td>
+        <td>아보카도</td>
+        <td>바나나</td>
+        <td>라임</td>
+        <td>블루베리</td>
+      </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
