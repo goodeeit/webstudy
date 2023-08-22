@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!--
+    링크
+    1. 인라인 요소
+    2. 형식
+      <a href="이동경로"></a>
+    3. 주요 속성
+      1) href   : 이동할 경로를 작성 (특정 파일, 특정 위치, URL 경로 등)
+      2) title  : 풍선 도움말 (마우스를 가져다대면 나타나는 메시지)
+      3) target : 어떤 창으로 이동하는지 작성
+        (1) _self  : 현재 창으로 이동 (디폴트, target 속성 생략 가능)
+        (2) _blank : 새 창으로 이동
+  -->
+
+  <!-- 1. 이동이 없는 링크 만들기 -->
+  <p>
+    <a href="#">비어 있는 링크</a>
+    <br>
+    <a href="javascript:void(0)">비어 있는 링크</a>
+  </p>
+
+  <hr>
+
+  <!-- 2. 특정 파일로 이동하는 링크 만들기 -->
+  <p>
+    <ul>
+      <li><a href="./01_basic.html">01_basic.html</a></li>
+      <li><a href="../../assets/image/animal1.jpg">animal1.jpg</a></li>
+    </ul>
+  </p>
+
+  <hr>
+
+  <!-- 3. URL 경로로 이동하는 링크 만들기 -->
+  <p>
+    <ol>
+      <li><a href="https://www.google.com/">구글</a></li>
+      <li><a href="https://www.naver.com/">네이버</a></li>
+    </ol>
+  </p>
+
+  <p>
+    <dl>
+      <dt>구글</dt>
+      <dd>
+        <a href="https://www.google.com/">
+          <img src="../../assets/image/google.png" width="200px">
+        </a>
+      </dd>
+      <dt>네이버</dt>
+      <dd>
+        <a href="https://www.naver.com/">
+          <img src="../../assets/image/naver.png" width="200px">
+        </a>
+      </dd>
+    </dl>
+  </p>
+
+
+</body>
+</html>
