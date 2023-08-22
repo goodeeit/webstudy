@@ -59,5 +59,74 @@
     <textarea rows="5" cols="50"></textarea>
   </p>
 
+  <hr>
+
+  <!--
+    목록 상자
+    1. 인라인 요소
+    2. 형식
+      <select>
+        <option>항목1</option>
+        <option>항목2</option>
+        <option>항목3</option>
+      </select>
+    3. 주요 속성
+         Name     | Value    | Describe
+      1) name     |          | 목록 상자의 이름을 작성(Back단에서 인식), <select> 태그의 속성
+      2) value    |          | 각 항목의 값을 작성(Back단에서 인식), <option> 태그의 속성
+      3) selected | selected | 기본 선택 항목
+  -->
+  <p>
+    <select name="direction">
+      <option value="">방향선택</option>
+      <option value="east">동</option>
+      <option value="west" selected="selected">서</option>
+      <option value="south">남</option>
+      <option value="north">북</option>
+    </select>
+  </p>
+
+  <hr>
+
+  <!--
+    입력 상자 + 목록 상자
+    1. <input> 태그 + <datalist> 태그
+    2. 형식
+      <input type="text" list="datalist아이디">
+      <datalist id="아이디">
+        <option>
+        <option>
+        <option>
+      </datalist>
+  -->
+  <p>
+    <input type="text" list="domain" placeholder="입력 또는 선택">
+    <datalist id="domain">
+      <option value="kakao.com"/>
+      <option value="gmail.com"></option>
+      <option value="naver.com"></option>
+    </datalist>
+  </p>
+
+  <hr>
+
+  <!--
+    단일 선택
+    1. 인라인 요소
+    2. 여러 항목 중에서 하나만 선택할 수 있다.
+    3. 형식
+      <input type="radio">
+    4. 주요 속성
+         Name     | Value    | Describe
+      1) name     |          | 라디오 버튼의 이름을 작성(Back단에서 인식), 모든 라디오 버튼은 동일한 name을 사용해야 한다.
+      2) value    |          | 선택한 라디오 버튼의 값을 작성(Back단에서 인식)
+      3) checked  | checked  | 기본 선택 라디오 버튼
+  -->
+  <p>
+    <input type="radio" name="gender" value="" checked>선택안함
+    <input type="radio" name="gender" value="male">남자
+    <input type="radio" name="gender" value="female">여자
+  </p>
+
 </body>
 </html>
