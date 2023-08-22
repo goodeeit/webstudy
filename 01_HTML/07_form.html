@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!--
+    입력 상자
+    1. 인라인 요소
+    2. 형식
+      <input type="종류">
+    3. 종류
+      1) text     : 일반 텍스트 (디폴트, type 속성 생략 가능)
+      2) password : 비밀번호
+      3) number   : 숫자
+      4) email    : 이메일
+      5) file     : 파일 첨부
+    4. 주요 속성
+         Name        | Value    | Describe
+      1) type        | text     | 입력 상자의 종류를 작성
+      2) size        | 정수     | 입력 상자의 크기를 작성
+      3) value       |          | 입력 상자에 입력된 데이터(사용자가 입력한 데이터가 저장되는 속성)
+      4) maxlength   | 정수     | 입력 상자에 입력할 수 있는 최대 글자 수
+      5) readonly    | readonly | 읽기 전용
+      6) required    | required | 필수 입력
+      7) disabled    | disabled | 사용 금지
+      8) placeholder |          | 입력 안내 메시지
+      9) multiple    | multiple | 다중 첨부
+     10) name        |          | 입력 상자의 이름을 작성(Back단에서 인식)
+  -->
+  <p>
+    <input type="text"><br>
+    <input type="text" size="20"><br>  <!-- 기본 크기 20 -->
+    <input type="text" value="지우지마시오!" readonly="readonly"><br>
+    <input type="text" maxlength="5" placeholder="우편번호"><br>
+  </p>
+  <p>
+    <input type="password" placeholder="비밀번호"><br>
+    <input type="number" min="0" max="100"><br>
+    <input type="file" multiple="multiple">
+  </p>
+
+  <hr>
+
+  <!--
+    다중 행 입력 상자
+    1. 인라인 요소
+    2. 형식
+      <textarea></textarea>
+    3. 주요 속성
+         Name  | Value  | Describe
+      1) rows  | 정수   | 입력 가능한 최대 행의 개수
+      2) cols  | 정수   | 입력 가능한 최대 열의 개수
+  -->
+  <p>
+    <textarea rows="5" cols="50"></textarea>
+  </p>
+
+</body>
+</html>
