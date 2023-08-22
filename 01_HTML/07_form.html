@@ -128,5 +128,53 @@
     <input type="radio" name="gender" value="female">여자
   </p>
 
+  <hr>
+
+  <!--
+    다중 선택
+    1. 인라인 요소
+    2. 여러 항목 중에서 여러 항목을 선택할 수 있다.
+    3. 형식
+      <input type="checkbox">
+    4. 주요 속성
+         Name     | Value    | Describe
+      1) name     |          | 체크박스의 이름을 작성(Back단에서 인식), 일반적으로 모든 체크박스는 동일한 name을 사용한다.
+      2) value    |          | 선택한 체크박스의 값을 작성(Back단에서 인식)
+      3) checked  | checked  | 기본 선택 체크박스
+  -->
+  <p>
+    <input type="checkbox" name="hobbies" value="fitness">운동
+    <input type="checkbox" name="hobbies" value="travel">여행
+    <input type="checkbox" name="hobbies" value="sns">SNS
+  </p>
+
+  <hr>
+
+  <!--
+    라벨
+    1. 인라인 요소
+    2. 라벨을 선택하면 라벨과 연결된 입력 요소(input, textarea, select 등)가 선택된다.
+    3. 형식
+      <label for="입력요소id">라벨내용</label>
+      <input type="text" id="아이디">
+  -->
+  <p>
+    <input type="radio" name="gender" value="" id="gender_none">
+    <label for="gender_none">선택안함</label>
+    <input type="radio" name="gender" value="male" id="gender_male">
+    <label for="gender_male">남자</label>
+    <input type="radio" name="gender" value="female" id="gender_female">
+    <label for="gender_female">여자</label>
+  </p>
+
+  <hr>
+
+  <!--
+    폼
+    1. 입력 요소(input, textarea, select 등)들을 서버측으로 보내기 위해서 사용한다.
+    2. <form> 태그 내부에 서버측으로 보낼 입력 요소들을 배치한다.
+    3. <form> 태그 내부의 모든 입력 요소들을 서버측으로 보내는 것을 "서브밋(submit)"이라고 한다.
+  -->
+
 </body>
 </html>
