@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    p {
+      
+      font-family: '맑은 고딕', '고딕', sans-serif;  /* '맑은 고딕' 사용, 없으면 '고딕' 사용, 없으면 고딕 계열(sans-serif) 사용 */
+      font-family: '궁서', '명조', serif;  /* '궁서' 사용, 없으면 '명조', 없으면 명조 계열(serif) 사용 */
+      font-size: 32px;  /* 디폴트 16px */
+      font-weight: 900;  /* 디폴트 400, 100~900 */
+      font-style: italic;  /* italic(기울임), normal(안 기울임) */
+      
+      color: crimson;
+      color: rgb(0, 0, 0);  /* red(0), green(0), blue(0) - black */
+      color: rgb(255, 255, 255);  /* red(255), green(255), blue(255) - white */
+      color: #000000;  /* 16진수 색상코드 : red(0), greed(0), blue(0) - black */
+      color: #FFFFFF;  /* 16진수 색상코드 : red(255), green(255), blue(255) - white */
+      color: rgba(0, 0, 0, 1);  /* red(0), green(0), blue(0), alpha(0 ~ 1) : 투명도(0은 투명, 1은 불투명) */
+
+      letter-spacing: -1px;  /* 글자 사이 간격(자간) */
+      line-height: 64px;  /* 행 높이(세로 가운데 정렬할 때 주로 사용) */
+
+    }
+
+    pre {
+
+      /* 블록 요소는 정렬이 된다. */
+      /* div, hr, h1~h6, p, pre, ul, ol, li, dl, dt, dd, audio, video, table, form */
+      text-align: center;  /* 가로 가운데 정렬 */
+
+    }
+
+    a {
+
+      /* 인라인 요소는 정렬이 되지 않는다. */
+      /* span, br, strong, em, ins, del, mark, img, a, input, select, textarea, button, label */
+      text-align: center;
+
+    }
+
+  </style>
+</head>
+<body>
+  
+  <p>Hello World</p>
+
+  <pre>만나서 반갑습니다</pre>
+
+  <a href="#">Contact Us</a>
+
+</body>
+</html>
