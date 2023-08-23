@@ -1,0 +1,48 @@
+<!--
+  fontawesome 아이콘
+  1. https://cdnjs.com/에 접속한다.
+  2. "font-awesome"을 조회해서 fontawesome 아이콘을 가져올 수 있는 URL을 알아낸다.
+  3. 알아낸 URL을 HTML 문서로 가져온다.
+    1) <link rel="stylesheet" href="알아낸 URL">
+    2) @import url(알아낸 URL)
+  4. https://fontawesome.com/에 접속한다.
+  5. 원하는 아이콘의 <i class="xxx"></i> 태그를 가져온다.
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
+  </style>
+</head>
+<body>
+
+  <p>
+    홈 <i class="fa-solid fa-house"></i>
+  </p>
+
+  <p>
+    휴지통 <i class="fa-regular fa-trash-can"></i>
+    휴지통 <i class="fa-regular fa-trash-can fa-2x"></i>
+    휴지통 <i class="fa-regular fa-trash-can fa-3x"></i>
+    휴지통 <i class="fa-regular fa-trash-can fa-4x"></i>
+    휴지통 <i class="fa-regular fa-trash-can fa-5x"></i>
+  </p>
+
+  <p>
+    <a href="https://github.com/">
+      <i class="fa-brands fa-github"></i>
+    </a>
+  </p>
+
+  <p>
+    <button>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </p>
+
+</body>
+</html>
