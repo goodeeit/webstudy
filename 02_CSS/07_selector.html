@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
+  </style>
+</head>
+<body>
+
+  
+  <!--
+    id 속성
+    1. 모든 태그가 가질 수 있는 전역 속성이다.
+    2. 문서 내의 모든 요소는 중복된 id를 가질 수 없다.
+    3. id 선택자
+      #id
+  -->
+
+  <style>
+    #box1 {
+      color: crimson;
+    }
+    #box2 {
+      color: teal;
+    }
+  </style>
+
+  <div id="box1">
+    Hello World
+  </div>
+
+  <div id="box2">
+    Hello World
+  </div>
+
+
+  <hr>
+
+
+  <!--
+    class 속성
+    1. 모든 태그가 가질 수 있는 전역 속성이다.
+    2. 문서 내의 모든 요소는 동일한 class를 가질 수 있다.
+    3. 동일한 특성을 가지는 요소들은 동일한 class 속성을 가진다.
+    4. 하나의 요소가 여러 개의 class를 가질 수 있다. (각 class를 공백으로 구분)
+    5. class 선택자
+      .class
+  -->
+
+  <style>
+    
+    .green {
+      color: green;
+    }
+    .bold {
+      font-weight: 900;
+    }
+
+  </style>
+
+  <div class="green bold">
+    안녕하세요
+  </div>
+
+  <div class="green">
+    안녕하세요
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /* 자식 선택자 : 부모 > 자식 */
+    ul > li {
+      color: orange;
+    }
+    ul > li > a {
+      color: orangered;
+    }
+
+  </style>
+
+  <div>
+    <ul>
+      <li>구글 <a href="https://www.google.com/"><i class="fa-brands fa-google"></i></a></li>
+      <li>유튜브 <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a></li>
+      <li>애플 <a href="https://www.apple.com/kr/store"><i class="fa-brands fa-apple"></i></a></li>
+    </ul>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /* 후손 선택자 : 조상 후손 */
+    ol label {
+      color: violet;
+    }
+
+  </style>
+
+  <div>
+    <ol>
+      <li>
+        <input type="radio" name="wakeup" id="six">
+        <label for="six">6시</label>
+      </li>
+      <li>
+        <input type="radio" name="wakeup" id="seven">
+        <label for="seven">7시</label>
+      </li>
+      <li>
+        <input type="radio" name="wakeup" id="eight">
+        <label for="eight">8시</label>
+      </li>
+    </ol>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /* 모든 형제 선택자 : 형제 ~ 형제 */
+    .asia > h4 ~ p {
+      color: rgb(187, 187, 187);
+    }
+
+  </style>
+
+  <div class="asia">
+    <h4>아시아</h4>
+    <p>한국</p>
+    <p>일본</p>
+    <p>중국</p>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /* 인접 형제 선택자 : 형제 + 형제 */
+    .hobby > h4 + input + label {
+      color: #c2c3c4;
+    }
+
+  </style>
+
+  <div class="hobby">
+    <h4>취미</h4>
+    <input type="checkbox" id="fitness">
+    <label for="fitness">헬스</label>
+    <input type="checkbox" id="travel">
+    <label for="travel">여행</label>
+    <input type="checkbox" id="cook">
+    <label for="cook">요리</label>
+  </div>
+
+
+  
+
+</body>
+</html>
