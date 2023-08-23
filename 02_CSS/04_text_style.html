@@ -29,7 +29,7 @@
     pre {
 
       /* 블록 요소는 정렬이 된다. */
-      /* div, hr, h1~h6, p, pre, ul, ol, li, dl, dt, dd, audio, video, table, form */
+      /* div, hr, h1~h6, p, pre, ul, ol, li, dl, dt, dd, table, form */
       text-align: center;  /* 가로 가운데 정렬 */
 
     }
@@ -37,8 +37,26 @@
     a {
 
       /* 인라인 요소는 정렬이 되지 않는다. */
-      /* span, br, strong, em, ins, del, mark, img, a, input, select, textarea, button, label */
+      /* span, br, strong, em, ins, del, mark, img, audio, video, a, input, select, textarea, button, label */
       text-align: center;  /* 가로 가운데 정렬 */
+      text-decoration: none;  /* 밑줄 없음 */
+
+    }
+
+    h1 {
+
+      /*
+        벤더 프리픽스
+        1. Vendor Prefix
+        2. CSS속성 앞에 브라우저 벤더(제공업체)를 작성할 수 있다.
+        3. 종류
+          1) -webkit- : 크롬, 사파리
+          2) -moz-    : 파이어폭스
+          3) -o-      : 오페라
+      */
+
+      -webkit-text-stroke-color: crimson;
+      -webkit-text-stroke-width: 1px;
 
     }
 
@@ -51,6 +69,8 @@
   <pre>만나서 반갑습니다</pre>
 
   <a href="#">Contact Us</a>
+
+  <h1>Good bye</h1>
 
 </body>
 </html>
