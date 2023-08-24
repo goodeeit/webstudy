@@ -11,11 +11,16 @@
   <style>
     /* box 크기와 배경 이미지 크기를 동일하게 맞춤 */
     .box1 {
+      
       box-sizing: border-box;
       width: 192px;
       height: 128px;
+      
       background-image: url(../../assets/image/animal10.jpg);
       background-size: 192px 128px;
+
+      background: url(../../assets/image/animal10.jpg) 192px 128px/center;  /* 단축속성 : 크기(size)/위치(position) */
+
     }
   </style>
   <div class="box1"></div>
@@ -27,14 +32,19 @@
   <style>
     /* box보다 작은 이미지 처리 */
     .box2 {
+
       box-sizing: border-box;
       width: 500px;
       height: 380px;
       border: 1px solid gray;
+
       background-image: url(../../assets/image/attach1.png);
       background-repeat: no-repeat;  /* 반복없음 */
       background-size: auto;         /* 이미지 크기를 그대로 사용 */
       background-position: right;    /* top/bottom(세로 정렬), left/center/right(가로 정렬) */
+
+      background: url(../../assets/image/attach1.png) no-repeat auto/right;
+
     }
   </style>
   <div class="box2"></div>
@@ -46,15 +56,20 @@
   <style>
     /* box보다 큰 이미지 처리 */
     .box3 {
+
       box-sizing: border-box;
       width: 300px;
       height: 300px;
       border: 1px solid gray;
+
       background-image: url(../../assets/image/animal10.jpg);
       background-repeat: no-repeat;
       background-size: cover;  /* contain : 이미지를 늘리거나 자르지 않고 최대한 크게 조정해서 표현 */
                                /* cover   : 너비/높이 중 작은 부분을 최대한 여백 없이 표시하고 box 밖으로 나간 부분은 자름 */
       background-position: center;
+
+      background: url(../../assets/image/animal10.jpg) no-repeat cover/center;
+
     }
   </style>
   <div class="box3"></div>
@@ -66,26 +81,61 @@
   <style>
     /* 이미지의 일부만 표시하기 */
     .box4 {
+
       box-sizing: border-box;
       width: 115px;
       height: 115px;
+
       background-image: url(../../assets/image/weather.png);
       background-position: -145px -145px;  /* 가로 세로 순으로 이동, -145px: 배경이 왼쪽/아래쪽으로 145px 이동 */
+
+      background: url(../../assets/image/weather.png) auto/-145px -145px;
+
     }
     .box5 {
+
       box-sizing: border-box;
       width: 110px;
       height: 220px;
+
       background-image: url(../../assets/image/logo.png);
       background-position: -1170px -175px;
+
+      background: url(../../assets/image/logo.png) auto/-1170px -175px;
+
     }
   </style>
   <div class="box4"></div>
   <div class="box5"></div>
 
 
+  <hr>
 
 
+  <style>
+
+    .box6 {
+      
+      box-sizing: border-box;
+      width: 640px;
+      height: 480px;
+      background-image: url(../../assets/image/architecture2.jpg);
+      background-size: 640px 480px;  /* background-size: 100%; */
+      background-color: gray;
+      background-blend-mode: multiply;
+
+      background: url(../../assets/image/architecture2.jpg) 640px 480px gray multiple ;
+
+      font-size: 80px;
+      font-weight: 900;
+      color: white;
+      text-align: center;  /* 가로 가운데 정렬 */
+      line-height: 480px;  /* box의 height와 line-height가 동일하면 세로 가운데 정렬 효과가 나타난다.(1줄만 가능) */
+
+    }
+
+  </style>
+  <div class="box6">우와</div>
 
 </body>
 </html>
