@@ -31,6 +31,10 @@
       background-image: url(../../assets/image/flower5.jpg);
     }
 
+    .wrap1 > .box3 {
+      visibility: hidden;  /* 안 보임, 블록 영역은 차지하고 있음 */
+      opacity: 0;          /* 안 보임, 투명도를 0으로 지정하면 안 보임 */
+    }
 
   </style>
 
@@ -40,6 +44,45 @@
     <div class="box3"></div>
     <div class="box4"></div>
     <div class="box5"></div>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+    .wrap2 > div {
+      box-sizing: border-box;
+      width: 192px;
+      height: 128px;
+    }
+    .wrap2 img {
+      /* visibility: hidden; */
+      opacity: 0.1;  /* 투명도 0은 안 보임 */
+    }
+    .wrap2 > div:hover > img {
+      /* visibility: visible; */
+      opacity: 1;  /* 투명도 1은 보임 */
+    }
+
+  </style>
+
+  <div class="wrap2">
+    <div class="box1">
+      <img src="../../assets/image/flower1.jpg" width="192px" height="128px">
+    </div>
+    <div class="box2">
+      <img src="../../assets/image/flower2.jpg" width="192px" height="128px">
+    </div>
+    <div class="box3">
+      <img src="../../assets/image/flower3.jpg" width="192px" height="128px">
+    </div>
+    <div class="box4">
+      <img src="../../assets/image/flower4.jpg" width="192px" height="128px">
+    </div>
+    <div class="box5">
+      <img src="../../assets/image/flower5.jpg" width="192px" height="128px">
+    </div>
   </div>
 
 </body>
