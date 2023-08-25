@@ -32,8 +32,16 @@
         4) orientation: portrait  화면을 세워서 볼 때
         5) orientation: landscape 화면을 눕혀서 볼 때
     */
-
-
+    
+    
+    
+    /*
+    화면 크기에 따른 레이아웃 변경 실습
+    1. 400px 이하    : 4행 1열
+    2. 401px ~ 800px : 2행 2열
+    3. 801px 이상    : 1행 4열
+    */
+    
     body {
       width: 90%;
       margin: 0 auto;
@@ -43,14 +51,6 @@
       padding: 0;
       margin: 0;
     }
-
-
-    /*
-      화면 크기에 따른 레이아웃 변경 실습
-      1. 400px 이하    : 4행 1열
-      2. 401px ~ 800px : 2행 2열
-      3. 801px 이상    : 1행 4열
-    */
 
     @media screen and (max-width: 400px) {
       .wrap {
