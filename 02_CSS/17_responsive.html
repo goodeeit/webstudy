@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    /*
+      반응형 웹
+      1. 화면의 크기에 따라 웹 페이지의 레이아웃이 자동으로 변하는 기능이다.
+      2. 뷰포트 설정이 필요하다.
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        1) width=device-width : 화면의 너비를 장치의 너비로 재지정한다.
+        2) initial-scale=1.0  : 페이지의 초기 확대/축소 지정을 1이다.
+      3. 상대 단위를 이용해서 작성한다.
+        %, vw, vh 등
+    */
+
+    /*
+      미디어 쿼리
+      1. 화면의 크기 변화를 감지하는 CSS 모듈이다.
+      2. 선언 : @media
+      3. 종류 : screen(화면), speech(낭독기), print(출력물), all(모든 미디어)
+      4. 조건 예시
+        1) width: 640px       너비가 640px인 경우
+        2) min-width: 640px   최소 640px인 경우(640px 이상인 경우)
+        3) max-width: 640px   최대 640px인 경우(640px 이하인 경우)
+        4) orientation: portrait  화면을 세워서 볼 때
+        5) orientation: landscape 화면을 눕혀서 볼 때
+    */
+
+
+    body {
+      width: 90%;
+      margin: 0 auto;
+    }
+    div {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+
+    /*
+      화면 크기에 따른 레이아웃 변경 실습
+      1. 400px 이하    : 4행 1열
+      2. 401px ~ 800px : 2행 2열
+      3. 801px 이상    : 1행 4열
+    */
+
+    @media screen and (max-width: 400px) {
+      .wrap {
+        width: 100%;
+      }
+      .wrap > div {
+        width: 100%;
+        height: 100px;
+        border: 1px solid gray;
+      }
+    }
+
+    @media screen and (min-width: 401px) and (max-width: 800px) {
+      .wrap {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .wrap > div {
+        width: 50%;
+        height: 100px;
+        border: 1px solid gray;
+      }
+    }
+
+    @media screen and (min-width: 801px) {
+      .wrap {
+        width: 100%;
+        max-width: 1000px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .wrap > div {
+        width: 24%;
+        height: 100px;
+        border: 1px solid gray;
+      }
+    }
+
+  </style>
+
+  <div class="wrap">
+    <div>box1</div>
+    <div>box2</div>
+    <div>box3</div>
+    <div>box4</div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <style>
+    /* CSS 초기화 */
+    body, div {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      width: 100%;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+    }
+  </style>
+  
+
+  <style>
+    /*
+      1. position: static;
+        1) 디폴트, 생략 가능
+        2) HTML 기본 배치를 따른다.
+        3) 위치 조정(top, bottom, left, right)이 불가능하다.
+    */
+
+    .wrap1 {
+      width: 500px;
+    }
+    .wrap1 > div {
+      position: static;
+      top: 50px;  /* 위에서 50px 떨어뜨리기(아래로 50px 이동하기) */
+      left: 50px; /* 왼쪽에서 50px 떨어뜨리기(오른쪽으로 50px 이동하기) */
+    }
+
+  </style>
+
+  <div class="wrap1">
+    <div>box</div>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /*
+      2. position: relative;
+        1) HTML 기본 배치를 따른다.
+        2) 위치 조정(top, bottom, left, right)이 가능하다.
+        3) HTML 기본 배치를 기준으로 위치가 조정된다.
+    */
+
+    .wrap2 {
+      width: 500px;
+    }
+    .wrap2 > div {
+      position: relative;
+      left: 50px;
+    }
+
+  </style>
+
+  <div class="wrap2">
+    <div>box</div>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /*
+      3. position: absolute;
+        1) HTML 기본 배치를 따르지 않는다.
+        2) 부모 요소를 기준으로 위치 조정(top, bottom, left, right)이 가능하다.
+        3) 부모 요소가 position: static;이 아닌 경우에 동작 가능하다.
+    */
+
+    .wrap3 {
+      width: 300px;
+      height: 300px;
+      position: relative;
+    }
+    .wrap3 > div {
+      position: absolute;
+      right: 50px;
+    }
+
+  </style>
+
+  <div class="wrap3">
+    <div>box</div>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /*
+      4. position: fixed;
+        1) HTML 기본 배치를 따르지 않고 특정 위치에 고정된 상태로 배치된다.
+        2) 브라우저 화면을 기준으로 위치 조정(top, bottom, left, right)이 가능하다.
+        3) fixed된 구성 요소는 다른 요소를 가린다.
+    */
+
+    .wrap4 {
+      width: 100%;
+      height: 100px;
+      background-color: skyblue;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+  </style>
+
+  <div class="wrap4">
+  </div>
+
+
+</body>
+</html>
