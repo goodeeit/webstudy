@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+  <style>
+    /* 블록 -> 인라인 */
+    .wrap1 > div {
+      display: inline;
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+    }
+  </style>
+
+  <div class="wrap1">
+    <div>블록 요소</div>
+    <div>블록 요소</div>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+    /* 인라인 -> 블록 */
+    .wrap2 > span {
+      display: block;
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+    }
+  </style>
+
+  <div class="wrap2">
+    <span>인라인 요소</span>
+    <span>인라인 요소</span>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+    /* inline-block : 같은 줄에 배치할 수 있는 블록 요소 */
+    .wrap3 > span {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+    }
+  </style>
+
+  <div class="wrap3">
+    <span>인라인 요소</span>
+    <span>인라인 요소</span>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    .wrap4 > div {
+      width: 128px;
+      height: 128px;
+      border-radius: 20px;
+      background-size: cover;
+      background-position: center;
+    }
+    .wrap4 > .box1 {
+      background-image: url(../../assets/image/architecture1.jpg);
+    }
+    .wrap4 > .box2 {
+      background-image: url(../../assets/image/architecture2.jpg);
+    }
+    .wrap4 > .box3 {
+      background-image: url(../../assets/image/architecture3.jpg);
+    }
+
+    .wrap4 > .box2 {
+      /* 화면에서 없어진다. */
+      display: none;
+    }
+
+  </style>
+
+  <div class="wrap4">
+     <div class="box1"></div>
+     <div class="box2"></div>
+     <div class="box3"></div>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+    #agree_all {
+      display: none;
+    }
+    .wrap5 > label {
+      padding-left: 20px;
+      background-image: url(../../assets/image/check1.png);
+      background-repeat: no-repeat;
+      background-size: 16px 16px;
+      background-position: 0 3px;
+    }
+    #agree_all:checked + label {
+      background-image: url(../../assets/image/check2.png);
+    }
+  </style>
+
+  <div class="wrap5">
+    <input type="checkbox" id="agree_all">
+    <label for="agree_all">모두 동의합니다</label>
+  </div>
+
+</body>
+</html>
