@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    /* CSS 초기화 */
+    body, div {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 90%;
+      margin: 0 auto;
+    }
+    div {
+      border: 1px solid gray;
+    }
+
+  </style>
+
+
+  <!--
+    수평 레이아웃 설정 방법
+    1. float + clear 속성
+    2. float + overflow 속성 / float + display 속성
+    3. display 속성
+  -->
+
+
+  <style>
+
+    /*
+      1. float + clear 속성
+        1) 수평 배치할 box를 float 처리한다.
+        2) 수평 배치된 box 아래에 배치할 box에 clear 처리한다.
+    */
+
+    .wrap1 {
+      width: 100%;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    .wrap1 > .box1 {
+      width: 100%;
+      height: 50px;
+    }
+    .wrap1 > .box2 {
+      width: 48%;
+      height: 100px;
+      float: left;
+    }
+    .wrap1 > .box3 {
+      width: 48%;
+      height: 100px;
+      float: right;
+    }
+    .wrap1 > .box4 {
+      width: 100%;
+      height: 50px;
+      clear: both;
+    }
+
+  </style>
+
+  <div class="wrap1">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="box4">box4</div>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /*
+      2. float + overflow 속성
+        1) box를 하나 만들어 수평으로 배치할 box들을 내부에 배치한다.
+        2) 부모 요소에 overflow 속성을 visible이 아닌 값을 설정한다. (주로 hidden 설정)
+        3) 자식 요소에 float 속성을 설정한다.
+      2. float + display 속성
+        1) box를 하나 만들어 수평으로 배치할 box들을 내부에 배치한다.
+        2) 부모 요소에 display 속성을 flow-root로 설정한다.
+        3) 자식 요소에 float 속성을 설정한다.
+    */
+
+    .wrap2 {
+      width: 100%;
+      max-width: 800px;
+      margin: 10px auto;
+    }
+    .wrap2 > .box1 {
+      width: 100%;
+      height: 50px;
+    }
+    .wrap2 > .wrapper {
+      width: 100%;
+      height: 100px;
+      /* overflow: hidden; */
+      display: flow-root;
+    }
+    .wrap2 > .wrapper > .box2 {
+      width: 70%;
+      height: 100%;
+      float: left;
+    }
+    .wrap2 > .wrapper > .box3 {
+      width: 25%;
+      height: 100%;
+      float: right;
+    }
+    .wrap2 > .box4 {
+      width: 100%;
+      height: 50px;
+    }
+
+  </style>
+
+  <div class="wrap2">
+    <div class="box1">box1</div>
+    <div class="wrapper">
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </div>
+    <div class="box4">box4</div>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+
+    /*
+      3. display 속성
+        1) box를 하나 만들어 수평으로 배치할 box들을 내부에 배치한다.
+        2) 부모 요소에 display 속성을 flex로 설정한다.
+        3) 부모 요소 : flex container, 자식 요소 : flex item
+    */
+
+    .wrap3 {
+      width: 1000px;
+      max-width: 1000px;
+      margin: 10px auto;
+    }
+    .wrap3 > .box1 {
+      width: 1000px;
+      height: 50px;
+    }
+    .wrap3 > .wrapper {
+      width: 1000px;
+      height: 100px;
+      display: flex;
+      flex-direction: row;  /* row    : flex-item을 main axis(메인 축, x축)로 배치, 디폴트 */
+                            /* column : flex-item을 cross axis(교차 축, y축)로 배치 */
+      justify-content: space-between;  /* flex-item 사이에 공백을 둠 */
+      flex-wrap: nowrap;    /* nowrap : flex-item을 flex-container를 벗어나지 않게 크기를 조절해서 배치함, 디폴트 */
+                            /* wrap   : flex-item의 크기가 그대로 사용되기 때문에 flex-container를 벗어날 수 있음 */
+    }
+    .wrap3 > .wrapper > .box2 {
+      /* width: 700px; */
+      flex: 7;  /* flex-item의 크기(width 대체) */
+      height: 100px;
+    }
+    .wrap3 > .wrapper > .box3 {
+      /* width: 300px; */
+      flex: 3;  /* flex-item의 크기(width 대체) */
+      height: 100px;
+    }
+    .wrap3 > .box4 {
+      width: 1000px;
+      height: 50px;
+    }
+
+  </style>
+
+  <div class="wrap3">
+    <div class="box1">box1</div>
+    <div class="wrapper">
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </div>
+    <div class="box4">box4</div>
+  </div>
+
+
+
+
+</body>
+</html>

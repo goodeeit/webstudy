@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    /*
+      float 속성
+
+      1. HTML 요소들은 기본 배치를 가진다.
+        1) 위에서 아래 방향으로 배치한다.
+        2) 왼쪽에서 오른쪽 방향으로 배치한다.
+        3) 블록 요소는 라인을 각각 차지하고, 인라인 요소는 라인에 포함된다.
+      2. HTML 기본 배치를 무시하고 새롭게 배치된다.
+        1) 왼쪽에 배치할 수 있다.
+        2) 오른쪽에 배치할 수 있다.
+    */
+    .wrap1 > div {
+      box-sizing: border-box;
+      width: 50px;
+      height: 50px;
+      border: 1px solid gray;
+      text-align: center;
+      line-height: 50px;
+    }
+    .wrap1 > .box1 {
+      float: left;
+    }
+    .wrap1 > .box2 {
+      float: left;
+    }
+  </style>
+
+  <div class="wrap1">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut justo diam. Phasellus quis tellus nec turpis hendrerit laoreet ac quis mauris. Fusce mollis lacinia eros vel feugiat. Fusce nec enim non nunc auctor pharetra sit amet sed nisi. Vivamus viverra efficitur justo, eu pharetra nulla porta ut. Quisque rutrum porta est ut sollicitudin. Aenean ac felis nulla. Proin pellentesque dui sit amet pretium ornare. Fusce mollis, lacus et sollicitudin fringilla, turpis libero mattis lectus, at porttitor mauris risus vel mauris. Pellentesque quis justo lectus.
+  </div>
+
+  
+  <hr>
+
+
+  <style>
+    .wrap2 > div {
+      box-sizing: border-box;
+      width: 300px;
+      height: 300px;
+      border: 1px solid gray;
+    }
+    .wrap2 > .box1 {
+      float: left;
+    }
+    .wrap2 > .box2 {
+      float: left;
+    }
+    .wrap2 > .box3 {
+      /* float 요소의 영역에서 벗어나시오. (left, right, both) */
+      clear: left;  /* float: left; 에서 벗어나시오. */
+      width: 600px;
+      height: 100px;
+    }
+  </style>
+
+  <div class="wrap2">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+
+
+
+
+
+</body>
+</html>
