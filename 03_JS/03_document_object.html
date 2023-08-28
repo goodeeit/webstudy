@@ -67,5 +67,75 @@
 
   </script>
 
+
+  <!-- 태그 내부 텍스트 -->
+  <p id="p1">Hello World</p>
+  <script>
+    var p1 = document.getElementById('p1');
+    console.log(p1.textContent);
+    p1.textContent = '안녕하세요';
+    p1.textContent += ' 반갑습니다';
+  </script>
+
+
+  <!-- 태그 내부 요소 -->
+  <p id="p2"><strong>Hello World</strong></p>
+  <script>
+    var p2 = document.getElementById('p2');
+    console.log(p2.innerHTML);
+    p2.innerHTML = '<em>안녕하세요</em>';
+    p2.innerHTML += '<mark>반갑습니다</mark>';
+  </script>
+
+
+  <!-- 태그 속성 -->
+  <p id="p3">
+    <img src="../../assets/image/flower1.jpg" width="384px">
+  </p>
+  <script>
+    /*
+      태그 속성
+      1. attribute
+      2. 태그에 명시된 속성을 말한다.
+      3. 태그 속성 메소드
+        1) 속성값 알아내기 : getAttribute('속성')
+        2) 속성값 변경하기 : setAttribute('속성', '값')
+        3) 속성값 삭제하기 : removeAttribute('속성')
+    */
+    var img = document.querySelector('#p3 > img');
+    console.log(img.getAttribute('src'));
+    console.log(img.getAttribute('width'));
+    img.setAttribute('src', '../../assets/image/flower2.jpg');
+    img.setAttribute('width', '192px');
+    img.removeAttribute('src');
+    img.removeAttribute('width');
+  </script>
+
+
+
+
+  <!-- 연습1. 봄,여름,가을,겨울 목록 만들기 -->
+  <ul id="season">
+    
+  </ul>
+  <script>
+    var str = '<li>봄</li><li>여름</li><li>가을</li><li>겨울</li>';
+    document.getElementById('season').innerHTML = str;
+  </script>
+
+
+  <!-- 연습2. 구글, 네이버, 다음 로고 이미지를 클릭하면 해당 페이지로 이동하기 -->
+  <!-- 1. <a> 태그와 <img> 태그 넣기 -->
+  <!-- 2. <a> 태그에 href 속성, <img> 태그에 src, width 속성 넣기 -->
+  <ul id="site">
+    
+  </ul>
+  <script>
+    var site = document.getElementById('site');
+    site.innerHTML += '<li><a href="https://www.google.com/"><img src="../../assets/image/google.png" width="192px"></a></li>';
+    site.innerHTML += '<li><a href="https://www.naver.com/"><img src="../../assets/image/naver.png" width="192px"></a></li>';
+    site.innerHTML += '<li><a href="https://www.daum.net/"><img src="../../assets/image/daum.png" width="192px"></a></li>';
+  </script>
+
 </body>
 </html>
