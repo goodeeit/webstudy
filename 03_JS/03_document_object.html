@@ -68,6 +68,7 @@
   </script>
 
 
+
   <!-- 태그 내부 텍스트 -->
   <p id="p1">Hello World</p>
   <script>
@@ -78,6 +79,7 @@
   </script>
 
 
+
   <!-- 태그 내부 요소 -->
   <p id="p2"><strong>Hello World</strong></p>
   <script>
@@ -86,6 +88,7 @@
     p2.innerHTML = '<em>안녕하세요</em>';
     p2.innerHTML += '<mark>반갑습니다</mark>';
   </script>
+
 
 
   <!-- 태그 속성 -->
@@ -110,6 +113,7 @@
     img.removeAttribute('src');
     img.removeAttribute('width');
   </script>
+
 
 
   <!-- 객체 속성 -->
@@ -154,17 +158,34 @@
     console.log('class',   female['className']);
     console.log('checked', female['checked']);
 
+    male.checked = false;   // male.removeAttribute('checked')
+    female.checked = true;  // female.setAttribute('checked', 'checked');
+
   </script>
 
 
 
+  <!-- CSS 처리하기 -->
+  <p id="p5">Hello World</p>
+  <script>
+    /*
+      CSS 처리하기
+      1. 문서 객체의 style 속성을 이용한다.
+      2. style 속성으로 지정한 CSS 속성은 inline 방식으로 적용된다.
+        (JavaScript로 지정한 CSS는 항상 적용된다.)
+      3. style 속성 뒤에 CSS 속성을 작성한다.
+        1) 하이픈(-)을 제거한 뒤 camel case 방식으로 CSS 속성을 바꾼다.  예시) 객체.style.fontSize = '32px'
+        2) CSS 속성을 문자열(string) 형식으로 그대로 사용한다.           예시) 객체.style['font-size'] = '32px'
+    */
+    var p5 = document.getElementById('p5');
+    p5.style.fontSize = '32px';
+    p5.style['text-align'] = 'center';
+  </script>
 
 
 
   <!-- 연습1. 봄,여름,가을,겨울 목록 만들기 -->
-  <ul id="season">
-    
-  </ul>
+  <ul id="season"></ul>
   <script>
     var str = '<li>봄</li><li>여름</li><li>가을</li><li>겨울</li>';
     document.getElementById('season').innerHTML = str;
@@ -174,15 +195,24 @@
   <!-- 연습2. 구글, 네이버, 다음 로고 이미지를 클릭하면 해당 페이지로 이동하기 -->
   <!-- 1. <a> 태그와 <img> 태그 넣기 -->
   <!-- 2. <a> 태그에 href 속성, <img> 태그에 src, width 속성 넣기 -->
-  <ul id="site">
-    
-  </ul>
+  <ul id="site"></ul>
   <script>
     var site = document.getElementById('site');
     site.innerHTML += '<li><a href="https://www.google.com/"><img src="../../assets/image/google.png" width="192px"></a></li>';
     site.innerHTML += '<li><a href="https://www.naver.com/"><img src="../../assets/image/naver.png" width="192px"></a></li>';
     site.innerHTML += '<li><a href="https://www.daum.net/"><img src="../../assets/image/daum.png" width="192px"></a></li>';
   </script>
+
+
+  <!-- 연습3. password 입력 상자를 text 입력 상자로 바꾸기 -->
+  <div>
+    <input type="password" id="pw">
+  </div>
+  <script>
+    var pw = document.getElementById('pw');
+    pw.type = 'text';  // pw.setAttribute('type', 'text');
+  </script>
+
 
 </body>
 </html>
