@@ -41,10 +41,10 @@
         4) 변수에 저장된 값을 바꾸면 자료형도 함께 바뀐다.
       
       3. 변수 선언 키워드
-                 | scope           | 변수 선언   | 초기화               | 재선언 | 용도
-        1) var   | function level  | 생략 가능   | 생략 가능(undefined) | 가능   | 함수, 전역 변수
-        2) let   | block level({}) | 생략 불가능 | 생략 가능(undefined) | 불가능 | 지역 변수
-        3) const | block level({}) | 생략 불가능 | 생략 불가능          | 불가능 | 상수
+                 | scope           | 변수 선언   | 초기화      | 재선언 | 용도
+        1) var   | function level  | 생략 가능   | 생략 가능   | 가능   | 함수, 전역 변수
+        2) let   | block level({}) | 생략 불가능 | 생략 가능   | 불가능 | 지역 변수
+        3) const | block level({}) | 생략 불가능 | 생략 불가능 | 불가능 | 상수
     */
   </script>
 
@@ -59,22 +59,22 @@
       3. 콘솔 출력 (F12 - Console 탭)
         console.log(출력메시지)
     */
-   /*
-   alert('Hello World');
-   document.write('<h1>Hello World</h1>');
-   console.log('Hello World');
-   */
+    /*
+      alert('Hello World');
+      document.write('<h1>Hello World</h1>');
+      console.log('Hello World');
+    */
   </script>
 
   <script>
 
     // 변수 선언(초기화가 없으면 undefined)
     var a;
-    console.log(a);
+    console.log(a, a + 1);  // undefiend, NaN
 
     // 변수 재선언(값이 저장되면서 타입이 결정됨)
     var a = 10;
-    console.log(typeof a, a);
+    console.log(typeof a, a, a / 0);  // number, 10, Infinity
 
     // 저장된 값이 바뀌면 타입도 바뀜
     a = 'tom';
@@ -83,6 +83,61 @@
     // 변수 선언 생략
     b = true;
     console.log(typeof b, b);
+
+  </script>
+
+  <script>
+
+    /*
+      자료형 변환하기
+      1. number -> string
+        1) String(number) 함수
+        2) number + ''
+      2. string -> number
+        1) Number(string) 함수
+        2) parseInt(string) 함수
+        3) parseFloat(string) 함수
+    */
+
+    var a = 100;
+    var str = String(a);
+    console.log(typeof str, str);
+    var str = a + '';
+    console.log(typeof str, str);
+
+    var str = '200';
+    var a = Number(str);
+    console.log(typeof a, a);
+    var a = parseInt(str);
+    console.log(typeof a, a);
+
+  </script>
+
+  <script>
+
+    /*
+      호이스팅(Hoisting)
+      1. JavaScript 인터프리터가 함수나 변수의 선언 이전에 미리 메모리 공간을 할당하는 것을 의미한다.
+      2. var 키워드로 선언한 변수는 호이스팅 시 undefined 값을 가진다.
+      3. let 키워드로 선언한 변수는 호이스팅 시 초기화되지 않는다.
+      4. 함수의 정의보다 함수의 호출을 먼저 할 수 있다.
+      5. 변수의 선언보다 변수의 사용을 먼저 할 수 있다.
+      6. 변수의 선언과 초기화가 함께 진행되는 경우 선언부와 초기화를 분리하여 처리된다.
+    */
+    
+    // var 키워드 호이스팅
+    x = 10;
+    console.log(x);
+    var x;  // 변수 선언은 다른 코드보다 항상 먼저 처리된다. 이걸 호이스팅이라고 한다.
+
+    console.log(y);  // undefined (var 키워드로 호이스팅 된 변수는 undefined로 초기화된다.)
+    var y = 20;      // var y; y = 20; 으로 분리해서 호이스팅된다.
+    console.log(y);  // 20
+
+    // let 키워드 호이스팅
+    console.log(z);  // Reference Error 발생 (let 키워드로 호이스팅 된 변수는 초기화되지 않기 때문에 접근 시 오류가 발생함)
+    let z = 30;      // let z; z = 30; 으로 분리해서 호이스팅된다.
+    console.log(z);
 
   </script>
 
