@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    
+    /*
+      DOM
+      1. Document Object Model(문서 객체 모델)
+      2. HTML 구성 요소(HTMLCollection/HTMLElement, NodeList/Node)를 객체(Object)로 저장하고 처리할 수 있는 방식이다.
+      3. HTML 구성 요소(HTMLCollection/HTMLElement, NodeList/Node) 알아내기
+        1) id 속성으로 알아내기
+          var 변수 = document.getElementById('아이디')
+        2) class 속성으로 알아내기
+          var 배열 = document.getElementsByClassName('클래스')
+        3) tag 이름으로 알아내기
+          var 배열 = document.getElementsByTagName('태그')
+        4) 선택자로 알아내기
+          var 변수 = document.querySelector('선택자')
+        5) 선택자로 알아내기
+          var 배열 = document.querySelectorAll('선택자')
+      4. 반드시 HTML 구성 요소(HTMLCollection/HTMLElement, NodeList/Node)를 먼저 만들어야 한다. <script> 태그는 나중에 만든다.
+    */
+
+  </script>
+
+  <div class="wrap">
+    <div id="box1" class="primary_box">box1</div>
+    <div id="box2" class="primary_box">box2</div>
+    <div id="box3" class="primary_box">box3</div>
+  </div>
+
+  <script>
+
+    // id 속성
+    var box1 = document.getElementById('box1');
+    console.log(box1);
+    var box2 = document.getElementById('box2');
+    console.log(box2);
+    var box3 = document.getElementById('box3');
+    console.log(box3);
+
+    // class 속성
+    var primary_box = document.getElementsByClassName('primary_box');
+    console.log(primary_box);
+
+    // tag 이름
+    var div = document.getElementsByTagName('div');
+    console.log(div);
+
+    // 선택자를 이용해 id="box1", id="box2", id="box3" 알아내기
+    var box1 = document.querySelector('#box1');
+    console.log(box1);
+    var box2 = document.querySelector('#box2');
+    console.log(box2);
+    var box3 = document.querySelector('#box3');
+    console.log(box3);
+
+    // 선택자를 이용해 class="primary_box" 알아내기
+    var primary_box = document.querySelectorAll('.wrap > .primary_box');
+    console.log(primary_box);
+
+  </script>
+
+</body>
+</html>

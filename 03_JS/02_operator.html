@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      1. 산술 연산자
+        1) 더하기 : +
+        2) 빼기   : -
+        3) 곱하기 : *  (2 * 3 == 6)
+        4) 제곱   : ** (2 ** 3 == 8, 2의 3제곱)
+        5) 나누기 : /  (5 / 2 == 2.5)
+        6) 나머지 : %  (5 % 2 == 1)
+        7) 몫     : 함수 필요함 (예 : parseInt(5 / 2))
+        8) 증감   : ++, --
+      2. 대입/복합 대입 연산자
+        1) 대입     : =
+        2) 복합대입 : +=, -=, *=, **=, /=, %=
+      3. 비교 연산자
+        1) 크다       : >
+        2) 작다       : <
+        3) 크거나같다 : >=
+        4) 작거나같다 : <=
+        5) 같다 (모든 타입에서 사용 가능함)
+          (1) 값이 같다        : ==   (1 == '1'  결과는 true)
+          (2) 값과 타입이 같다 : ===  (1 === '1' 결과는 false)
+        6) 같지않다 (모든 타입에서 사용 가능함)
+          (1) 값이 다르다        : !=
+          (2) 값과 타입이 다르다 : !==
+      4. 논리 연산자
+        1) 논리 AND : &&
+        2) 논리 OR  : ||
+        3) 논리 NOT : !
+      5. 조건 연산자
+        (조건식) ? true일 때 : false일 때
+      6. 문자열 연산자
+        1) +                  : 문자열 연결
+        2) + 이외 산술 연산자 : 산술 연산으로 처리
+    */
+
+  </script>
+
+  <script>
+
+    /*
+      최저 시급 : 9,620원
+      8시간까지는 최저 시급을 받고, 8시간 초과 근무 시 최저 시급의 1.5배를 받는다.
+      하루 n시간 일하면 일당 얼마일까요?
+    */
+
+    const hourlyWage = 9620;  // 시급(상수)
+    let workingHours = 12;    // 근무시간(변수)
+
+    let regularPay;  // 정규 수당
+    let extraPay;    // 초과 수당
+
+    regularPay = hourlyWage * workingHours;
+    extraPay = (workingHours <= 8) ? 0 : (workingHours - 8) * hourlyWage * 0.5;
+    
+    let message = '시급 ' + hourlyWage + ', 근무시간 ' + workingHours + ', 일당 ' + (regularPay + extraPay);
+    alert(message);
+
+  </script>
+
+
+</body>
+</html>
