@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 주석
+    /*
+      주석
+    */
+  </script>
+
+  <script>
+    /*
+      JavaScript
+      1. ECMAScript(ES)가 원래 명칭이다.
+      2. <script> 태그 내부에 작성한다. <script> 태그의 위치는 정해져 있지 않다.(<head>, <body> 모두 가능)
+      3. HTML 구성 요소의 생성/삭제/수정 작업을 할 수 있다.
+    */
+  </script>
+
+  <script>
+    /*
+      변수(Variable)
+
+      1. 기본 자료형
+        1) number    : 정수/실수 구분이 없다. NaN(Not a Number), Infinity/-Infinity(+0/-0으로 나눌 때 발생)
+        2) string    : 문자/문자열 구분이 없다. 작은 따옴표('')와 큰 따옴표("")를 모두 사용할 수 있다.
+        3) boolean   : true/false
+        4) null      : 변수에 null을 저장한 경우(없는 값을 저장한 경우, 초기화를 위해 저장한 경우)
+        5) undefined : 변수에 어떤 값도 저장된 적이 없는 경우
+      
+      2. 특징
+        1) Dynamic type(동적 타입)이다.
+        2) 변수를 선언할 때 자료형이 결정되지 않는다.
+        3) 변수에 값을 저장할 때 자료형이 결정된다.
+        4) 변수에 저장된 값을 바꾸면 자료형도 함께 바뀐다.
+      
+      3. 변수 선언 키워드
+                 | scope           | 변수 선언   | 초기화                   | 재선언 | 용도
+        1) var   | function level  | 생략 가능   | 생략 가능(undefined)     | 가능   | 일반 변수
+        2) let   | block level({}) | 생략 불가능 | 생략 가능(메모리에 없음) | 불가능 | 지역 변수
+        3) const | block level({}) | 생략 불가능 | 생략 불가능              | 불가능 | 상수
+    */
+  </script>
+
+  <script>
+    /*
+      JavaScript의 출력 방식
+
+      1. 경고창
+        alert(출력메시지)
+      2. 브라우저 화면 출력
+        document.write(출력메시지)
+      3. 콘솔 출력 (F12 - Console 탭)
+        console.log(출력메시지)
+    */
+   /*
+   alert('Hello World');
+   document.write('<h1>Hello World</h1>');
+   console.log('Hello World');
+   */
+  </script>
+
+  <script>
+
+    // 변수 선언(초기화가 없으면 undefined)
+    var a;
+    console.log(a);
+
+    // 변수 재선언(값이 저장되면서 타입이 결정됨)
+    var a = 10;
+    console.log(typeof a, a);
+
+    // 저장된 값이 바뀌면 타입도 바뀜
+    a = 'tom';
+    console.log(typeof a, a);
+
+    // 변수 선언 생략
+    b = true;
+    console.log(typeof b, b);
+
+  </script>
+
+</body>
+</html>
