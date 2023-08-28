@@ -112,6 +112,53 @@
   </script>
 
 
+  <!-- 객체 속성 -->
+  <p id="p4">
+    <input type="radio" name="gender" value="M" id="male" class="blind" checked="checked">
+    <label for="male">남자</label>
+    <input type="radio" name="gender" value="F" id="female" class="blind">
+    <label for="female">여자</label>
+  </p>
+  <script>
+
+    /*
+      객체 속성
+      1. property
+      2. JavaScript로 저장한 문서 객체가 가지는 속성이다.
+      3. 태그에 명시된 attribute와 비슷하지만 다르다.
+        예시)
+                            | attribute         | property
+          ------------------|-------------------|--------------
+          id="box"          | id="box"          | id: box
+          class="p"         | class="p"         | className: p
+          checked="checked" | checked="checked" | checked: true
+      4. 객체 속성 사용
+        1) 객체.속성
+        2) 객체['속성']
+      5. F12 - [Elements] 탭 - [Properties] 탭에서 property를 확인할 수 있다.
+    */
+    
+    var male = document.getElementById('male');
+    console.log('type',    male.type);
+    console.log('name',    male.name);
+    console.log('value',   male.value);
+    console.log('id',      male.id);
+    console.log('class',   male.className);
+    console.log('checked', male.checked);
+
+    var female = document.getElementById('female');
+    console.log('type',    female['type']);
+    console.log('name',    female['name']);
+    console.log('value',   female['value']);
+    console.log('id',      female['id']);
+    console.log('class',   female['className']);
+    console.log('checked', female['checked']);
+
+  </script>
+
+
+
+
 
 
   <!-- 연습1. 봄,여름,가을,겨울 목록 만들기 -->
