@@ -13,7 +13,6 @@
       padding: 0;
       margin: 0;
       box-sizing: border-box;
-      border: 1px solid gray;
     }
   </style>
 
@@ -22,15 +21,65 @@
     /* fontawesome의 아이콘을 제공 받을 수 있는 URL 포함 */
     @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
 
+    .login_wrap {
+      width: 450px;
+      display: flex;                   /* 자식 태그인 left_wrap과 right_wrap을 수평 배치하기 위함 */
+      justify-content: space-between;  /* 자식 태그 사이에 공백을 둠 */
+      margin: 10px auto;               /* 전체 양식의 위치 조정(안해도 되는 작업) */
+    }
+    .left_wrap {
+      width: 315px;
+    }
+    .right_wrap {
+      width: 126px;
+    }
 
+    .icon_input_wrap {
+      display: flex;
+      border: 1px solid gray;
+      border-radius: 5px 0 5px;  /* 둥글게 다듬기 : 11시와 5시만 5px 주기 */
+      margin: 5px 0;
+    }
+    .icon_wrap {
+      width: 40px;
+      height: 40px;
+      text-align: center;  /* 가로 가운데 정렬, 아이콘도 글자 정렬 처리 방식을 사용함 */
+      line-height: 40px;   /* 세로 가운데 정렬 효과 */
+      background-color: gray;
+      border-radius: 3.5px 0 0;    /* 둥글게 다듬기 : 11시만 3.5px 주기 */
+    }
+    .input_wrap {
+      width: 275px;
+      height: 40px;
+      padding-left: 10px;  /* <input> 태그가 .icon_wrap과 붙는 것을 방지 */
+      background-color: white;
+      border-radius: 0 0 4px;  /* 둥글게 다듬기 : 5시만 4px 주기 */
+    }
+    .input_wrap > input {
+      width: 250px;
+      height: 34px;
+      border: 0;   /* <input> 태그 평소 테두리 없애기 */
+      outline: 0;  /* <input> 태그 포커스를 가질 때 테두리 없애기 */
+    }
+
+    .btn_login {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      border: 0;
+      border-radius: 5px;
+    }
+    .btn_login:hover {
+      background-color: teal;
+    }
 
   </style>
 
-  <!-- 전체 양식 -->
-  <div class="login_wrap">
-
-    <!-- 실제 로그인을 위해서는 form 태그가 필요함 -->
-    <form action="#" method="post">
+  <!-- 실제 로그인을 위해서는 form 태그가 필요함 -->
+  <form action="#" method="post">
+    
+    <!-- 전체 양식 -->
+    <div class="login_wrap">
 
       <!-- 왼쪽 영역 -->
       <div class="left_wrap">
@@ -52,16 +101,36 @@
 
         </div>
 
+        <!-- 입력 상자 영역(아이콘 + 입력상자) -->
+        <div class="icon_input_wrap">
+
+          <!-- 아이콘 -->
+          <div class="icon_wrap">
+            <label for="pw">
+              <i class="fa-solid fa-key"></i>
+            </label>
+          </div>
+
+          <!-- 입력상자 -->
+          <div class="input_wrap">
+            <input type="password" id="pw" placeholder="●●●●">
+          </div>
+
+        </div>
+
       </div>
 
       <!-- 오른쪽 영역 -->
       <div class="right_wrap">
 
+        <!-- 로그인 버튼 -->
+        <button class="btn_login">로그인</button>
+
       </div>
 
-    </form>
+    </div>
 
-  </div>
+  </form>
 
 </body>
 </html>
