@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="box1"></div>
+  <script>
+    
+    var str = '';
+    for(let n = 1; n <= 5; n++){
+      str += (n + '<br>');
+    }
+
+    document.getElementById('box1').innerHTML = str;
+
+  </script>
+
+
+  <hr>
+
+
+  <style>
+    #box2 > img {
+      margin-right: 10px;
+    }
+  </style>
+  <div id="box2"></div>
+  <script>
+    var str = '';
+    for(let n = 1; n <= 10; n++){
+      str += '<img src="../../assets/image/animal' + n + '.jpg" width="100px">';
+    }
+    document.getElementById('box2').innerHTML = str;
+  </script>
+
+
+  <hr>
+
+
+  <div id="box3"></div>
+  <script>
+    var str = '<select name="month"><option value="">월 선택</option>';
+    for(let m = 1; m <= 12; m++){
+      str += '<option value="' + m + '">' + m + '월</option>';
+    }
+    str += '</select>';
+    document.getElementById('box3').innerHTML = str;
+  </script>
+
+
+  <hr>
+  
+
+  <div id="box4"></div>
+  <script>
+    /*
+              col=1  col=2  col=3
+      row=1   1      2      3
+      row=2   4      5      6
+      row=3   7      8      9
+      ----------------------------
+      (1~9) = (row - 1) * 3 + col
+    */
+    var str = '<table border="1"><tbody>';
+    for(let row = 1; row <= 3; row++){
+      str += '<tr>';
+      for(let col = 1; col <= 3; col++){
+        str += '<td>' + ((row - 1) * 3 + col) + '</td>';
+      }
+      str += '</tr>';
+    }
+    str += '</tbody></table>';
+    document.getElementById('box4').innerHTML = str;
+  </script>
+
+
+</body>
+</html>
