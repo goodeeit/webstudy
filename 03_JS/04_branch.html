@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <ul>
+    <li>국어 <span id="kor">80</span>점</li>
+    <li>영어 <span id="eng">85</span>점</li>
+    <li>수학 <span id="math">95</span>점</li>
+    <li>평균 <span id="ave"></span>점</li>
+    <li>학점 <span id="grade"></span>학점</li>
+  </ul>
+  
+  <script>
+
+    // 국어, 영어, 수학 점수 변수로 저장하기
+    var kor = Number(document.getElementById('kor').textContent);
+    var eng = Number(document.getElementById('eng').textContent);
+    var math = Number(document.getElementById('math').textContent);
+
+    // 평균 구하기
+    var ave = (kor + eng + math) / 3;
+
+    // 학점 구하기
+    var grade;
+    if(ave >= 90){
+      grade = 'A';
+    } else if(ave >= 80){
+      grade = 'B';
+    } else if(ave >= 70){
+      grade = 'C';
+    } else if(ave >= 60){
+      grade = 'D';
+    } else {
+      grade = 'F';
+    }
+
+    // 결과 표시하기
+    document.getElementById('ave').textContent = ave;
+    document.getElementById('grade').textContent = grade;
+
+  </script>
+
+</body>
+</html>
