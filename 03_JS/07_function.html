@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    /*
+      선언 함수
+      1. 함수의 이름이 있다.
+      2. 함수 정의(함수를 만드는 것)와 함수 호출(함수를 사용하는 것)로 구분한다.
+      3. 함수 정의 형식
+        function 함수명([매개변수]){
+          함수 본문
+          return 반환값;
+        }
+      4. 함수 호출 형식
+        함수명([인수]);
+    */
+
+    // 함수 호출
+    myFunc1();
+
+    // 함수 정의 (호이스팅 대상이므로 언제나 먼저 처리된다.)
+    function myFunc1(){
+      console.log('myFunc1 실행');
+    }
+
+  </script>
+
+
+  <script>
+
+    /*
+      익명 함수
+      1. 함수의 이름이 없다.
+      2. 호이스팅 대상이 아니다. (함수 정의를 반드시 먼저 해야 한다.)
+      3. 함수 정의 형식
+        1) 일반 익명 함수
+          function([매개변수]){
+            함수 본문
+            return 반환값
+          }
+        2) 화살표 익명 함수
+          ([매개변수])=>{
+            함수 본문
+            return 반환값
+          }
+        4. 함수 호출 형식
+          1) 함수를 변수에 저장하기
+            (1) 일반 익명 함수
+              var 함수명 = function(){
+
+              }
+              함수명();
+            (2) 화살표 익명 함수
+              var 함수명 = ()=>{
+
+              }
+              함수명();
+          2) 자기 호출 (함수 정의와 함수 호출이 동시에 진행되는 방식)
+            (1) 일반 익명 함수
+              (function(){
+
+              })();
+            (2) 화살표 익명 함수
+              (()=>{
+
+              })();
+          3) 이벤트 리스너로 등록하기
+            (1) 일반 익명 함수
+              문서객체.addEventListener('이벤트', function(){
+
+              });
+            (2) 화살표 익명 함수
+              문서객체.addEventListener('이벤트', ()=>{
+
+              });
+    */
+
+
+    // 1) 함수를 변수에 저장하기
+    var myFunc2 = function(){
+      console.log('myFunc2 실행');
+    }
+    myFunc2();
+
+
+    // 2) 자기 호출
+    (function(){
+      console.log('자기 호출 실행');
+    })();
+
+
+    // 3) 이벤트 리스너로 등록하기
+    document.addEventListener('dblclick', function(){
+      console.log('이벤트 리스너 실행');
+    });
+
+
+  </script>
+
+</body>
+</html>
