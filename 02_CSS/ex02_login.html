@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    /* CSS 초기화 */
+    body, div, form {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      border: 1px solid gray;
+    }
+  </style>
+
+  <style>
+
+    /* fontawesome의 아이콘을 제공 받을 수 있는 URL 포함 */
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
+
+
+
+  </style>
+
+  <!-- 전체 양식 -->
+  <div class="login_wrap">
+
+    <!-- 실제 로그인을 위해서는 form 태그가 필요함 -->
+    <form action="#" method="post">
+
+      <!-- 왼쪽 영역 -->
+      <div class="left_wrap">
+
+        <!-- 입력 상자 영역(아이콘 + 입력상자) -->
+        <div class="icon_input_wrap">
+
+          <!-- 아이콘 -->
+          <div class="icon_wrap">
+            <label for="id">
+              <i class="fa-solid fa-user"></i>
+            </label>
+          </div>
+
+          <!-- 입력상자 -->
+          <div class="input_wrap">
+            <input type="text" id="id" placeholder="Username">
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 오른쪽 영역 -->
+      <div class="right_wrap">
+
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

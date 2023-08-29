@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    /* CSS 초기화 */
+    body, div, ul, li {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  </style>
+
+  <style>
+    /* gnb(global navigation bar) 만들기 */
+    .wrap1 {
+      margin-top: 10px;
+    }
+    .wrap1 > .gnb {
+      list-style-type: none;  /* 각 항목 앞의 ● (marker) 없애기 */
+      overflow: hidden;       /* <li> 태그를 수평 배치하기 위해서 설정(부모 태그에 overflow: hidden 주기) */
+      border-top: 1px solid silver;
+      border-bottom: 1.5px solid darkgray;
+      padding-left: 300px;
+    }
+    .wrap1 > .gnb > li {
+      float: left;            /* <li> 태그를 수평 배치하기 위해서 설정(자식 태그에 float: left 주기) */
+      width: 80px;            /* 각 메뉴의 너비 */
+      height: 40px;           /* 각 메뉴의 높이 */
+    }
+    .wrap1 > .gnb > li > a {
+      display: block;         /* 메뉴를 클릭할 수 있는 영역을 키우기 위해서 인라인 요소를 블록 요소로 변경 */
+      width: 100%;            /* 부모인 <li> 태그 기준 */
+      height: 100%;           /* 부모인 <li> 태그 기준 */
+      text-align: center;     /* 글자 가로 가운데 정렬 */
+      line-height: 40px;      /* line-height 값은 height 값과 같거나 비슷하게 설정해서 글자 세로 가운데 정렬 효과를 줌 */
+    }
+    .wrap1 > .gnb > li > a:hover {
+      color: crimson;       /* 마우스를 가져다대면 글자 색상이 변함 */
+    }
+
+  </style>
+  <div class="wrap1">
+    <ul class="gnb">
+      <li><a href="javascript:void(0)">메뉴1</a></li>
+      <li><a href="javascript:void(0)">메뉴2</a></li>
+      <li><a href="javascript:void(0)">메뉴3</a></li>
+      <li><a href="javascript:void(0)">메뉴4</a></li>
+      <li><a href="javascript:void(0)">메뉴5</a></li>
+    </ul>
+  </div>
+
+
+  <hr>
+
+
+  <style>
+    .wrap2 > .gnb {
+      list-style-type: none;    /* 각 항목 앞의 ● (marker) 없애기 */
+      display: flex;            /* <li> 태그를 수평 배치하기 위해서 설정(부모 태그에 display: flex 주기) */
+      justify-content: center;  /* 각 항목(<li> 태그)을 flex-container(<ul> 태그)의 가로 가운데에 배치 */
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
+    }
+    .wrap2 > .gnb > li {
+      width: 80px;            /* 각 메뉴의 너비 */
+      height: 40px;           /* 각 메뉴의 높이 */
+    }
+    .wrap2 > .gnb > li > a {
+      display: block;         /* 메뉴를 클릭할 수 있는 영역을 키우기 위해서 인라인 요소를 블록 요소로 변경 */
+      width: 100%;            /* 부모인 <li> 태그 기준 */
+      height: 100%;           /* 부모인 <li> 태그 기준 */
+      text-align: center;     /* 글자 가로 가운데 정렬 */
+      line-height: 40px;      /* line-height 값은 height 값과 같거나 비슷하게 설정해서 글자 세로 가운데 정렬 효과를 줌 */
+    }
+    .wrap2 > .gnb > li > a:hover {
+      color: limegreen;                    /* 마우스를 가져다대면 글자 색상이 변함 */
+      border-bottom: 2px solid limegreen;  /* 마우스를 가져다대면 메뉴에 밑줄이 생김 */
+    }
+  </style>
+  <div class="wrap2">
+    <ul class="gnb">
+      <li><a href="javascript:void(0)">메뉴1</a></li>
+      <li><a href="javascript:void(0)">메뉴2</a></li>
+      <li><a href="javascript:void(0)">메뉴3</a></li>
+      <li><a href="javascript:void(0)">메뉴4</a></li>
+      <li><a href="javascript:void(0)">메뉴5</a></li>
+    </ul>
+  </div>
+
+  
+</body>
+</html>
