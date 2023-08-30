@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      객체(object)
+
+      1. 여러 데이터로 구성된 하나의 데이터를 의미한다.
+      2. 중괄호 {}를 이용해서 객체의 데이터를 묶는다.
+      3. 객체 형식
+        {
+          속성: 값,
+          '속성': 값
+        }
+      4. 객체 속성
+        1) 객체.속성
+        2) 객체['속성']
+      5. JavaScript 객체 표기법을 이용한 데이터 교환 형식을 "JSON"이라고 한다.
+    */
+
+    // 객체 만들기
+    var person = {
+      name: '홍길동',
+      age: 30,
+      isAlive: true,
+      hobbies: [
+        '여행',
+        '운동',
+        '요리'
+      ],
+      bef: {
+        name: '고길동',
+        age: 30
+      },
+      info: function(){
+        console.log('이름: ' + this.name + ', 나이: ' + this.age);  // 현재 객체(person === this)
+      }
+    }
+
+    // 객체 속성 확인
+    console.log('name: ' + person.name);
+    console.log('age:' + person.age);
+    console.log('isAlive:' + person.isAlive);
+    for(let i = 0; i < person.hobbies.length; i++){
+      console.log('hobbies:' + person.hobbies[i]);
+    }
+    console.log("bef's name:" + person.bef.name);
+    console.log("bef's age:" + person.bef.age);
+    (person.info)();
+
+  </script>
+
+</body>
+</html>
