@@ -37,6 +37,19 @@
   </script>
 
 
+  <style>
+    .warning {
+      color: crimson;
+    }
+  </style>
+  <div id="watch">
+    <span id="year"></span>년
+    <span id="month"></span>월
+    <span id="day"></span>일
+    <span id="hour"></span>시
+    <span id="minute"></span>분
+    <span id="second"></span>초
+  </div>
   <script>
 
     /*
@@ -66,6 +79,27 @@
     var hour = now.getHours();
     var minute = now.getMinutes();
     var second = now.getSeconds();
+
+    // 시계 만들기
+    setInterval(function(){
+
+      // 화면 표시
+      var now = new Date();
+      document.getElementById('year').textContent = now.getFullYear();
+      document.getElementById('month').textContent = String(now.getMonth() + 1).padStart(2, '0');
+      document.getElementById('day').textContent = String(now.getDate()).padStart(2, '0');
+      document.getElementById('hour').textContent = String(now.getHours()).padStart(2, '0');
+      document.getElementById('minute').textContent = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('second').textContent = String(now.getSeconds()).padStart(2, '0');
+
+      // 50초 넘으면 class 속성 변경
+      if(now.getSeconds() >= 50){
+        document.getElementById('watch').setAttribute('class', 'warning');
+      } else {
+        document.getElementById('watch').removeAttribute('class');
+      }
+
+    }, 1000);
 
   </script>
 
