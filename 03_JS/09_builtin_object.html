@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    /*
+      JSON 내장 객체
+      
+      1. JavaScript 객체 -> 문자열 형식의 JSON 데이터
+        var 문자열 = JSON.stringify(객체)
+
+      2. 문자열 형식의 JSON 데이터 -> JavaScript 객체
+        var 객체 = JSON.parse(문자열)
+    */
+
+    // 객체 생성
+    var person = {
+      name: '홍길동',
+      age: 30
+    };
+
+    // 객체 -> 문자열
+    var str = JSON.stringify(person);
+    console.log(typeof str, str);
+
+    // 문자열 -> 객체
+    var person = JSON.parse(str);
+    console.log(typeof person, person);
+
+  </script>
+
+
+  <script>
+
+    /*
+      Date 내장 객체
+
+      1. 타임스탬프 기반으로 날짜와 시간을 나타낸다.
+        (타임스탬프 : 1970년 1월 1일 자정 UTC 기준으로 증가하고 있는 밀리초)
+      2. 타임스탬프, 년, 월, 일, 시, 분, 초 등 원하는 값을 얻을 수 있다.
+    */
+
+    // 타임스탬프
+    var timestamp = Date.now();
+    console.log(timestamp);
+
+    // 문자열 형식의 현재 날짜와 시간
+    var strNow = Date();  // new Data().toString()
+    console.log(typeof strNow, strNow);
+
+    // 객체 형식의 현재 날짜와 시간
+    var now = new Date();
+    console.log(typeof now, now);
+
+    // 년,월,일,시,분,초
+    var year = now.getFullYear();
+    var month = now.getMonth();  // 주의! 0 ~ 11
+    var day = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+
+  </script>
+
+
+</body>
+</html>

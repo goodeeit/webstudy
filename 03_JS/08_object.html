@@ -58,5 +58,123 @@
   </script>
 
 
+  <script>
+
+    // 객체 속성 동적 처리(추가,삭제,수정)
+
+    // 빈 객체 생성
+    var car = {};
+
+    // 속성 추가
+    car.model = '모닝';
+    car.maker = 'kia';
+
+    // 속성 수정
+    car.model = '레이';
+
+    // 속성 삭제
+    delete car.maker;
+
+    console.log(car);
+
+  </script>
+
+
+  <script>
+
+    /*
+      생성자 함수
+      1. 객체를 만드는 함수이다.
+      2. new 키워드를 이용해서 객체를 만들 수 있다.
+      3. 관례상 첫 글자를 대문자로 작성한다.
+      4. 생성자 함수 형식
+        function 함수명(매개변수, 매개변수, ...){
+          this.속성 = 매개변수;
+          this.속성 = 매개변수;
+          ...
+        }
+    */
+
+    // 생성자 함수 정의
+    function Product(code, name, price){
+      this.code = code;
+      this.name = name;
+      this.price = price;
+    }
+
+    // 생성자 함수 호출(객체 생성)
+    var product = new Product('A123', '청소기', 10000);
+
+    // 객체 속성 확인
+    console.log(product['code']);
+    console.log(product['name']);
+    console.log(product['price']);
+
+  </script>
+
+
+  <script>
+
+    // 객체는 for-in문으로 각 속성을 순회할 수 있다.
+    
+    // 객체 생성
+    var book = {
+      title: '어린왕자',
+      author: '생택쥐베리',
+      price: 10000
+    };
+
+    // 객체 속성 순회
+    for(let p in book){  // 객체 book의 속성(property)들이 변수 p로 하나씩 전달된다.
+                         // 이 때 변수 p의 타입은 string 이므로, book.p는 동작하지 않고 book[p]만 동작한다.
+
+      console.log(book.p);  // 안 됨
+      console.log(book[p]); // 됨
+
+    }
+
+  </script>
+
+
+  <div id="box"></div>
+  <script>
+
+    // 테이블 만들기
+    // 성명  연락처         이메일
+    // 숙희  010-1111-1111  sookhee@gmail.com
+    // 정희  010-2222-2222  junghee@gmail.com
+    // 미희  010-3333-3333  mihee@gmail.com
+
+    // 1. 생성자 함수를 정의해서 3개의 객체를 생성하시오.
+    var Person = function(name, mobile, email){
+      this.name = name;
+      this.mobile = mobile;
+      this.email = email;
+    }
+
+    // 2. 생성된 3개의 객체를 배열에 저장하시오.
+    var people = [
+      new Person('숙희', '010-1111-1111', 'sookhee@gmail.com'),
+      new Person('정희', '010-2222-2222', 'junghee@gmail.com'),
+      new Person('미희', '010-3333-3333', 'mihee@gmail.com')
+    ];
+
+    // 3. 배열에 저장된 값을 테이블 형식으로 출력하시오.
+    var str = '<table border="1">';
+    str += '<thead><tr><td>성명</td><td>연락처</td><td>이메일</td></tr></thead>';
+    str += '<tbody>';
+    for(let i = 0; i < people.length; i++){      // 배열 순회
+      str += '<tr>';
+      for(let p in people[i]){  // 객체 순회
+        str += '<td>' + people[i][p] + '</td>';
+      }
+      str += '</tr>';
+    }
+    str += '</tbody></table>';
+    document.getElementById('box').innerHTML = str;
+
+  </script>
+
+
 </body>
 </html>
