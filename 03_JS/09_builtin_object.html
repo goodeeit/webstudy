@@ -37,19 +37,6 @@
   </script>
 
 
-  <style>
-    .warning {
-      color: crimson;
-    }
-  </style>
-  <div id="watch">
-    <span id="year"></span>년
-    <span id="month"></span>월
-    <span id="day"></span>일
-    <span id="hour"></span>시
-    <span id="minute"></span>분
-    <span id="second"></span>초
-  </div>
   <script>
 
     /*
@@ -86,10 +73,25 @@
     var someday = new Date(2023, 8, 30, 16, 30, 30);  // 2023-09-30 16:30:30 (8월이 아님 주의!)
     console.log(someday);
 
+  </script>
 
-    // 문제1. 시계 만들기
+
+  <!-- 문제1. 시계 만들기 -->
+  <style>
+    .warning {
+      color: crimson;
+    }
+  </style>
+  <div id="watch">
+    <span id="year"></span>년
+    <span id="month"></span>월
+    <span id="day"></span>일
+    <span id="hour"></span>시
+    <span id="minute"></span>분
+    <span id="second"></span>초
+  </div>
+  <script>
     setInterval(function(){
-
       // 화면 표시
       var now = new Date();
       document.getElementById('year').textContent = now.getFullYear();
@@ -98,24 +100,48 @@
       document.getElementById('hour').textContent = String(now.getHours()).padStart(2, '0');
       document.getElementById('minute').textContent = String(now.getMinutes()).padStart(2, '0');
       document.getElementById('second').textContent = String(now.getSeconds()).padStart(2, '0');
-
       // 50초 넘으면 class 속성 변경
       if(now.getSeconds() >= 50){
         document.getElementById('watch').setAttribute('class', 'warning');
       } else {
         document.getElementById('watch').removeAttribute('class');
       }
+    }, 1000);
+  </script>
+
+
+  <!-- 문제2. 디데이 -->
+  <!-- 1일 이상 남은 경우 : D-DAY 70일 15:10 -->
+  <!-- 1일 미만 남은 경우 : D-DAY 15:10 -->
+  <!-- 디데이가 지난 경우 : D-DAY 입니다. -->
+  <div id="dday"></div>
+  <script>
+    
+    setInterval(function(){
+
+      var now = new Date();               // 2023-08-30
+      var dday = new Date(2023, 10, 16);  // 2023-11-16
+      
+      var timestamp = dday.getTime() - now.getTime();  // dday - now로 계산해도 타임스탬프 결과가 나옴
+      var totalSecond = parseInt(timestamp / 1000);  // 밀리초를 초 단위로 변환함(parseInt : 소수점 제거됨)
+      var restDay = parseInt(totalSecond / 60 / 60 / 24);
+      var restHour = parseInt(totalSecond / 60 / 60) % 24;
+      var restMinute = parseInt(totalSecond / 60) % 60;
+  
+      var str = 'D-DAY&nbsp;';
+      if(totalSecond > 0){
+        if(restDay >= 1){
+          str += restDay + '일&nbsp;';
+        }
+        str += String(restHour).padStart(2, '0') + ':' + String(restMinute).padStart(2, '0');
+      } else {
+        str += '입니다.';
+      }
+  
+      document.getElementById('dday').innerHTML = '<h1>' + str + '</h1>';
 
     }, 1000);
 
-
-    // 문제2. 디데이
-    var now = new Date();               // 2023-08-30
-    var dday = new Date(2023, 10, 16);  // 2023-11-16
-    var timestamp = dday.getTime() - now.getTime();
-    console.log(timestamp / 1000 / 60 / 60 / 24);
-
-    
   </script>
 
 
