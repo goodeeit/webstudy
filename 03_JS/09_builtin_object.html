@@ -72,15 +72,22 @@
     var now = new Date();
     console.log(typeof now, now);
 
-    // 년,월,일,시,분,초
+    // 년,월,일,시,분,초,타임스탬프
     var year = now.getFullYear();
     var month = now.getMonth();  // 주의! 0 ~ 11
     var day = now.getDate();
     var hour = now.getHours();
     var minute = now.getMinutes();
     var second = now.getSeconds();
+    var timestamp = now.getTime();
+    console.log(year, month, day, hour, minute, second, timestamp);
 
-    // 시계 만들기
+    // 특정 날짜와 시간을 가진 객체 생성
+    var someday = new Date(2023, 8, 30, 16, 30, 30);  // 2023-09-30 16:30:30 (8월이 아님 주의!)
+    console.log(someday);
+
+
+    // 문제1. 시계 만들기
     setInterval(function(){
 
       // 화면 표시
@@ -101,6 +108,14 @@
 
     }, 1000);
 
+
+    // 문제2. 디데이
+    var now = new Date();               // 2023-08-30
+    var dday = new Date(2023, 10, 16);  // 2023-11-16
+    var timestamp = dday.getTime() - now.getTime();
+    console.log(timestamp / 1000 / 60 / 60 / 24);
+
+    
   </script>
 
 
