@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    #box1 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+      transition-property: width, border;  /* width, border 변화를 보겠다! 잘 모르면 all 권장 */
+      transition-duration: 3s;     /* 3초 동안 변화를 보겠다! */
+      transition-timing-function: ease-out;  /* ease-out (끝날 때 느리게 설정) */
+    }
+    #box1:hover {
+      width: 200px;
+      border: 1px solid crimson;
+    }
+  </style>
+  <div id="box1">box</div>
+
+  <hr>
+
+  <style>
+    #box2 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+      transition-property: transform;
+      transition-duration: 1s;
+    }
+    #box2:active {
+      /* transform: translateX(500px);  이동 */
+      /* transform: scaleX(2.0);  크기 */
+      transform: rotate(1800deg); 
+    }
+  </style>
+  <div id="box2">box2</div>
+
+  <hr>
+
+  <style>
+    div {
+      box-sizing: border-box;
+    }
+    .image {
+      width: 384px;
+      height: 256px;
+      background-image: url(../../assets/image/fruit1.jpg);
+      background-size: 100%;
+    }
+    .description {
+      width: 384px;
+      height: 256px;
+      background-color: rgba(187, 187, 187, 0.8);
+      font-size: 32px;
+      font-weight: 900;
+      color: white;
+      text-align: center;
+      line-height: 256px;
+      opacity: 0;  /* 투명 */
+      transition: transform 1s, opacity 1s;
+    }
+    .image:hover + .description {
+      transform: translateY(-256px);
+      opacity: 1;  /* 보임 */
+    }
+  </style>
+  <div class="image"></div>
+  <div class="description">맛있는 과일</div>
+
+</body>
+</html>
