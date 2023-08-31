@@ -76,6 +76,52 @@
   </script>
 
 
+  <script>
+
+    /* String 내장 객체 */
+
+    var str = 'JavaScript';
+
+    // 1. 문자열의 길이
+    console.log(str.length);
+
+    // 2. 특정 문자(지정된 인덱스에 위치하는 문자)
+    console.log(str.charAt(0));
+    console.log(str.charAt(str.length - 1));
+
+    // 3. 특정 문자열
+    console.log(str.substring(0, 4));  // 'Java'   : 인덱스 0 이상 ~ 인덱스 4 미만
+    console.log(str.substring(4));     // 'Script' : 인덱스 4 이상 ~ 끝까지
+    console.log(str.substr(0, 4));     // 'Java'   : 인덱스 0부터 4개 글자
+    console.log(str.substr(4));        // 'Script' : 인덱스 4부터 전체 글자
+
+    // 4. 문자열 연결
+    console.log(str.concat(', ', 'Hello World'));  // 'JavaScript, Hello World'
+
+    // 5. 특정 패턴으로 시작/특정 패턴으로 끝나는지 검사
+    console.log(str.startsWith('Java'));  // 'Java'로 시작하면 true
+    console.log(str.endsWith('Script'));  // 'Script'로 끝나면 true
+
+    // 6. 특정 문자열의 위치(인덱스) 찾기
+    console.log(str.indexOf('a'));      // 1, 'JavaScript'에서 발견된 첫번째 a의 인덱스를 반환
+    console.log(str.lastIndexOf('a'));  // 3, 'JavaScript'에서 발견된 마지막 a의 인덱스를 반환
+
+    // 7. 특정 문자열을 주어진 길이가 될 때까지 채우기
+    console.log(str.substring(0, 4).padEnd(10, '*'));  // 'Java******'
+    console.log(str.substring(4).padStart(10, '*'));   // '****Script'
+
+    // 8. 주어진 횟수만큼 반복하기
+    console.log(str.repeat(3));
+
+    // 9. 찾아 바꾸기
+    var str = '192.168.0.101';
+    console.log(str.replace('.', '_'));     // '192.168.0.101' -> '192_168.0.101'
+    console.log(str.replaceAll('.', '_'));  // '192.168.0.101' -> '192_168_0_101'
+
+  </script>
+
+
+
   <!-- 문제1. 시계 만들기 -->
   <style>
     .warning {
