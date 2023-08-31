@@ -89,6 +89,9 @@
   </script>
 
 
+  <hr>
+
+
   <script>
 
     /*
@@ -122,6 +125,9 @@
   </script>
 
 
+  <hr>
+
+
   <script>
 
     /*
@@ -148,6 +154,9 @@
       dom.style.fontSize = '32px';
     }
   </script>
+
+
+  <hr>
 
 
   <script>
@@ -179,6 +188,135 @@
         }
       })
     })
+  </script>
+
+
+  <hr>
+
+
+  <!-- 문제1. 서브밋 방지하기 -->
+  <div id="wrap1">
+    <form action="https://search.naver.com/search.naver" id="frm">
+      <div>
+        <input type="text" id="query" name="query">
+        <button type="submit">네이버검색</button>
+      </div>
+    </form>
+  </div>
+  <script>
+
+    /* 주의! 서브밋은 <form> 태그가 이벤트 대상이다. <button> 태그가 아니다. */
+    
+    document.getElementById('frm').addEventListener('submit', function(event){
+
+      // 검색어가 비어 있으면 서브밋 방지
+      if(document.getElementById('query').value === ''){
+        alert('검색어는 필수입니다.');
+        event.preventDefault();
+      }
+
+    })
+
+  </script>
+
+
+  <hr>
+
+
+  <!-- 문제2. 서브밋 방지하기 -->
+  <div id="wrap2">
+    <form action="https://search.daum.net/search" id="frm_daum_query">
+      <div>
+        <input type="text" id="q" name="q">
+        <input type="button" value="다음검색" id="btn_daum_query">
+      </div>
+    </form>
+  </div>
+  <script>
+
+    document.getElementById('btn_daum_query').addEventListener('click', function(){
+
+      if(document.getElementById('q').value === ''){
+        alert('검색어는 필수입니다.');
+        return;  // 이벤트 리스너 실행 종료
+      }
+
+      document.getElementById('frm_daum_query').submit();  // 서브밋!
+
+    })
+
+  </script>
+
+
+  <hr>
+
+
+  <!-- 문제3. 전체선택/개별선택 체크하기 -->
+  <div id="wrap3">
+    <div>
+      <input type="checkbox" id="chk_all">
+      <label for="chk_all">전체선택</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_one" class="chk_each">
+      <label for="chk_one">개별선택1</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_two" class="chk_each">
+      <label for="chk_two">개별선택2</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_three" class="chk_each">
+      <label for="chk_three">개별선택3</label>
+    </div>
+  </div>
+  <script>
+
+    // 전체선택 문서객체
+    var chkAll = document.getElementById('chk_all');
+
+    // 모든 개별선택 문서객체
+    var chkEach = document.getElementsByClassName('chk_each');
+
+    // 1. 전체선택을 클릭하면 전체선택의 체크상태를 개별선택들도 동일하게 가진다.
+    chkAll.addEventListener('click', function(){
+      for(let i = 0; i < chkEach.length; i++){
+        chkEach[i].checked = chkAll.checked;
+      }
+    })
+
+    // 2. 개별선택을 클릭하면 모든 개별선택의 체크상태를 확인해서 모두 체크되어 있으면 전체선택을 체크하고 아니면 전체선택을 해제한다.
+    for(let i = 0; i < chkEach.length; i++){
+      chkEach[i].addEventListener('click', function(){
+        let total = 0;
+        for(let j = 0; j < chkEach.length; j++){
+          total += chkEach[j].checked;  // 체크된 경우 total += 1, 해제된 경우 total += 0으로 동작한다.
+        }
+        chkAll.checked = (total === chkEach.length);
+      });
+    }
+
+  </script>
+
+
+  <hr>
+
+
+  <!-- 문제4. box를 클릭하면 box 색상을 임의로 변경하기 -->
+  <div id="wrap4">
+    box
+  </div>
+  <script>
+
+    // 난수 발생 함수
+    function getRandomInt(start, count){
+      return Math.floor(Math.random() * count) + start;
+    }
+
+    document.getElementById('wrap4').addEventListener('click', function(){
+      this.style.backgroundColor = 'rgb(' + getRandomInt(0, 256) + ', ' + getRandomInt(0, 256) + ', ' + getRandomInt(0, 256) + ')';
+    })
+
   </script>
 
 
