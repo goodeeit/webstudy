@@ -300,16 +300,30 @@
   <script>
 
     /*
-      ceil(555.555, 2)  === 555.56
-      ceil(555.555, 1)  === 555.6
-      ceil(555.555, 0)  === 556
+      ceil(555.555, 2)  === 555.56  |  Math.ceil(555.555 * 100)) / 100
+                                       Math.ceil(555.555 * Math.pow(10, 2)) / Math.pow(10, 2)
+
+      ceil(555.555, 1)  === 555.6   |  Math.ceil(555.555 * 10)  / 10
+                                       Math.ceil(555.555 * Math.pow(10, 1)) / Math.pow(10, 1)
+
+      ceil(555.555, 0)  === 556     |  Math.ceil(555.555 * 1)   / 1
+                                       Math.ceil(555.555 * Math.pow(10, 0)) / Math.pow(10, 0)
+
       ceil(555.555)     === 556
       ceil(555.555, -1) === 560
       ceil(555.555, -2) === 600
     */
 
+    function ceil(number, digit = 0){
+      return Math.ceil(number * Math.pow(10, digit)) / Math.pow(10, digit);
+    }
     
-    
+    console.log(ceil(555.555, 2));
+    console.log(ceil(555.555, 1));
+    console.log(ceil(555.555, 0));
+    console.log(ceil(555.555));
+    console.log(ceil(555.555, -1));
+    console.log(ceil(555.555, -2));
 
   </script>
 
