@@ -171,18 +171,15 @@
     <li><a href="https://www.daum.net/">다음</a></li>
   </ul>
   <script>
-    var sites = document.querySelectorAll('#site a');
-    sites.forEach(function(element){
-      element.addEventListener('click', function(event){
-        if(this.href.endsWith('.net/')){
-          event.preventDefault();
+    var sites = document.querySelectorAll('#site a');      // sites는 <a> 태그 3개가 저장된 배열이다.
+    sites.forEach(function(element){                       // element에는 sites 배열에 저장된 <a> 태그가 1개씩 전달된다.
+      element.addEventListener('click', function(event){   // 이벤트 방지를 위해서 event 객체를 매개변수로 선언한다.
+        if(this.href.endsWith('.net/')){                   // this는 element(<a> 태그)를 의미한다. href는 속성(프로퍼티)이다.
+          event.preventDefault();                          // 기본 이벤트가 방지된다.(<a> 태그는 링크 이동이 되지 않는다.)
         }
       })
     })
   </script>
-
-
-
 
 
 </body>
