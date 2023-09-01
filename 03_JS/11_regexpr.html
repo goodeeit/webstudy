@@ -92,9 +92,57 @@
     <input type="button" value="검사" id="btn_date_check">
   </div>
   <script>
-
+    document.getElementById('btn_date_check').addEventListener('click', function(){
+      var regDate = /^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+      var date = document.getElementById('date').value;
+      if(regDate.test(date)){
+        alert('날짜가 맞습니다.');
+      } else {
+        alert('날짜가 아닙니다.');
+      }
+    })
   </script>
 
+  <hr>
+
+  <div>
+    <h1>우편번호 검사</h1>
+    <form action="#" id="frm_postcode">
+      <input type="text" id="postcode">
+      <button type="submit">검사</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('frm_postcode').addEventListener('submit', function(event){
+      var postcode = document.getElementById('postcode').value;
+      var validPostcode = /^[0-9]{5}$/.test(postcode);
+      if(!validPostcode){
+        alert('우편번호가 아닙니다.');
+        event.preventDefault();
+        return;
+      }
+    })
+  </script>
+
+  <hr>
+
+  <div>
+    <h1>아이디 검사하기</h1>
+    <input type="text" id="id">
+    <input type="button" value="검사" id="btn_id_check">
+  </div>
+  <script>
+    document.getElementById('btn_id_check').addEventListener('click', function(){
+      // 아이디 : 4자 이상, 영문자,숫자,-,_로 구성
+      var regId = /^[A-Za-z0-9-_]{4,}$/;
+      var id = document.getElementById('id').value;
+      if(regId.test(id)){
+        alert('아이디가 맞습니다.');
+      } else {
+        alert('아이디가 아닙니다.');
+      }
+    })
+  </script>
 
 </body>
 </html>
