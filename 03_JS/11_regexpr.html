@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      정규식 (regular expression)
+      1. 문자열이 원하는 패턴으로 구성되어 있는지 확인하기 위한 표현식이다.
+      2. 정규식 선언 방법
+        var regExpr = /정규식/;
+      3. 정규식 처리 메소드
+        1) String.match(/정규식/)
+          (1) 원하는 패턴인 경우      : not null 반환
+          (2) 원하는 패턴이 아닌 경우 : null 반환
+        2) /정규식/.test(String)
+          (1) 원하는 패턴인 경우      : true 반환
+          (2) 원하는 패턴이 아닌 경우 : false 반환
+    */
+    /*
+      정규식 작성 방법
+
+      1. 메타 문자
+         1) .      : 모든 문자를 의미한다.
+         2) a      : a를 의미한다.
+         3) a|b    : a 또는 b를 의미한다.
+         4) ^a     : a로 시작한다.
+         5) a$     : a로 끝난다.
+         6) a*     : a를 0번 이상 반복한다. (a가 없어도 좋다.)
+         7) a+     : a를 1번 이상 반복한다. (a가 있어야 한다.)
+         8) a{n}   : a를 n번 반복한다.
+         9) a{n,}  : a를 n번 이상 반복한다.
+        10) a{n,m} : a를 n번 이상 m번 이하 반복한다.
+
+      2. 문자 클래스
+         1) [.]     : 마침표(.)를 의미한다.
+         2) [a]     : a를 의미한다.
+         3) [ab]    : a 또는 b를 의미한다.
+         4) ^[a]    : a로 시작한다.
+         5) [a]$    : a로 끝난다.
+         6) [^a]    : a를 제외한다.
+         7) [0-9]   : 숫자를 의미한다.
+         8) [A-Z]   : 대문자를 의미한다.
+         9) [a-z]   : 소문자를 의미한다.
+        10) [가-힣] : 한글을 의미한다.
+
+      3. 이스케이프
+         1) \d : 숫자를 의미한다. (digit)
+         2) \D : 숫자가 아니다.
+         3) \w : 숫자,영문,밑줄을 의미한다. [0-9A-Za-z_]
+         4) \W : 숫자,영문,밑줄이 아니다.
+    */
+
+  </script>
+
+
+  <div>
+    <h1>핸드폰 번호 검사</h1>
+    <input type="text" id="mobile">
+    <input type="button" value="검사" id="btn_mobile_check">
+  </div>
+  <script>
+    /*
+      이벤트 대상   : 검사 버튼
+      이벤트 타입   : click
+      이벤트 리스너 : function(){ 입력된 핸드폰 번호 검사 }
+    */
+    document.getElementById('btn_mobile_check').addEventListener('click', function(){
+      // 핸드폰 번호 검사 정규식 (010-숫자4개-숫자4개)
+      var regMobile = /^010-[0-9]{4}-\d{4}$/;
+      // 입력된 핸드폰 번호
+      var mobile = document.getElementById('mobile').value;
+      // 정규식 체크
+      if(regMobile.test(mobile)){
+        alert('핸드폰 번호가 맞습니다.');
+      } else {
+        alert('핸드폰 번호가 아닙니다.');
+      }
+    })
+  </script>
+
+  <hr>
+
+  <div>
+    <h1>날짜 검사</h1>
+    <input type="text" id="date">
+    <input type="button" value="검사" id="btn_date_check">
+  </div>
+  <script>
+
+  </script>
+
+
+</body>
+</html>
