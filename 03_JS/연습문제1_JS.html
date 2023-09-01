@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+
+  <!-- 문제1. global navigation bar 만들기 -->
+  <div id="box1"></div>
+  <style>
+    #box1 * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    #box1 a {
+      text-decoration: none;
+      color: black;
+    }
+    #box1 ul {
+      list-style: none;
+    }
+    #box1 .gnb {
+      display: flex;
+      width: 1000px;
+      height: 100px;
+      margin: 0 auto;
+      border-bottom: 1px solid gray;
+    }
+    #box1 .gnb li {
+      padding: 0 20px;
+    }
+    #box1 .gnb a {
+      display: block;
+      height: 100%;
+      text-align: center;
+      line-height: 100px;
+    }
+    #box1 .gnb a:hover {
+      border-bottom: 5px solid blue;
+    }
+  </style>
+<script>
+    /*
+      문제1. 아래 태그를 만들어서 box1에 넣으시오.
+      <ul class="gnb">
+        <li><a href="#">Models</a></li>
+        <li><a href="#">Find & Buy</a></li>
+        <li><a href="#">Electromobility</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Discover</a></li>
+      </ul>
+    */
+    var menu = ['Models', 'Find & Buy', 'Electromobility', 'Services', 'Discover'];
+    
+  </script>
+
+  <hr>
+
+  <!-- 문제2. 0.5초마다 무지개색으로 변환되는 box -->
+  <div id="box2"></div>
+  <style>
+    #box2 {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+  <script>
+    // 문제2. 0.5초마다 colors 배열의 각 요소를 box2의 background-color로 지정하시오.
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple'];
+    
+  </script>
+
+  <hr>
+
+  <!-- 문제3. 테이블에 데이터 넣기 -->
+  <div id="box3">
+    <table border="1">
+      <thead>
+        <tr>
+          <td>lastBuildDate</td>
+          <td colspan="2" id="lastBuildDate"></td>
+        </tr>
+        <tr>
+          <td>total</td>
+          <td colspan="2" id="total"></td>
+        </tr>
+        <tr>
+          <td>제목(title)</td>
+          <td>링크(link)</td>
+          <td>개요(description)</td>
+        </tr>
+      </thead>
+      <tbody id="items">
+
+      </tbody>
+    </table>
+  </div>
+  <script>
+    // 문제3. result 객체의 각 속성(lastBuildDate, total, items)을 테이블에 표시하시오.
+    var result = {
+      'lastBuildDate': '2022-01-01',
+      'total': 3,
+      'items': [
+        {
+          'title': '명량',
+          'link': 'https://www.명량.com',
+          'description': '내 죽음을 적에게 알리지 마라.'
+        },
+        {
+          'title': '극한직업',
+          'link': 'https://www.극한직업.com',
+          'description': '범인을 잡을 것인가, 닭을 잡을 것인가!'
+        },
+        {
+          'title': '신과함께(죄와벌)',
+          'link': 'https://www.신과함께.com',
+          'description': '오늘 예정대로 무사히 사망하셨습니다.'
+        }
+      ]
+    };
+    
+  </script>
+
+  <hr>
+
+  <!-- 문제4. 목록 태그 만들기 -->
+  <div id="box4"></div>
+  <style>
+    #box4 .product_list {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+    }
+    #box4 .product_list > li {
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      background-color: rgb(201, 87, 110);
+      color: white;
+      text-align: center;
+      padding-top: 20px;
+    }
+  </style>
+  <script>
+    /*
+      문제4. 아래 태그를 만들어서 box4에 넣으시오.
+      <ul class="product_list">
+        <li>Product1<br>15,000<br>★★★★<br></li>
+        <li>Product2<br>25,000<br>★★★★★<br></li>
+        <li>Product3<br>35,000<br>★★★<br></li>
+      </ul>
+    */
+    var products = [
+      {
+        'name': 'Product1',
+        'price': '15,000',
+        'star': '★★★★'
+      },
+      {
+        'name': 'Product2',
+        'price': '25,000',
+        'star': '★★★★★'
+      },
+      {
+        'name': 'Product3',
+        'price': '35,000',
+        'star': '★★★'
+      }
+    ];
+    
+  </script>
+
+  <hr>
+
+  <!-- 문제5. Student 객체를 생성자 함수로 만들어 테이블에 넣기 -->
+  <div id="box5">
+    <table border="1">
+      <thead>
+        <tr>
+          <td>이름</td>
+          <td>국어</td>
+          <td>영어</td>
+          <td>수학</td>
+          <td>평균</td>
+          <td>학점</td>
+        </tr>
+      </thead>
+      <tbody id="student_info">
+
+      </tbody>
+    </table>
+  </div>
+  <script>
+    // 문제5. 임의의 Student 객체 3개를 생성해서 student_info에 표시하시오.
+    
+  </script>
+
+  <hr>
+
+  <!-- 문제6. 5초마다 배경이 변하는 box -->
+  <div id="box6"></div>
+  <style>
+    #box6 {
+      width: 480px;
+      height: 320px;
+      background-size: 100% 100%;
+      transition: background-image 1s ease;
+    }
+  </style>
+  <script>
+    // 문제6. images 배열의 임의의 이미지를 배경으로 사용하시오.
+    var images = ['animal1.jpg', 'animal2.jpg', 'animal3.jpg', 'animal4.jpg', 'animal5.jpg'];
+    
+  </script>
+
+</body>
+</html>

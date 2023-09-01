@@ -70,7 +70,7 @@
         1) 창 크기 : width, height
         2) 창 위치 : top, bottom, left, right
     */
-
+    
     document.getElementById('btn_open').addEventListener('click', function(){
       // 브라우저 화면의 정중앙에 창 열기, 창 크기는 640px * 480px      
       var width = 640;
@@ -78,7 +78,7 @@
       var left = (screen.width - width) / 2;
       var top = (screen.height - height) / 2;
       var feature = 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top;
-      window.open('11_regexpr.html', '', feature);
+      a = window.open('', '', feature);
     })
 
   </script>
