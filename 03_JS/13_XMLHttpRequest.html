@@ -277,6 +277,53 @@
   <script>
 
     document.getElementById('btn_get_json').addEventListener('click', function(){
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'weather.json', true);
+      xhr.send();
+      xhr.addEventListener('readystatechange', function(){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var resData = JSON.parse(xhr.responseText);
+            var location = resData.rss.channel.item.description.body.location;
+            var rowspan = 0;
+            var tbody = '<tbody>';
+            for(let i = 0; i < location.length; i++){
+              if(location[i].province.startsWith('서울')){
+                var data = location[i].data;
+                rowspan += data.length;
+                for(let j = 0; j < data.length; j++){
+                  tbody += '<tr>';
+                  if(i === 0 && j === 0){
+                    tbody += '<td id="first_row">' + location[i].province + '</td>';
+                  }
+                  if(j === 0){
+                    tbody += '<td rowspan="' + data.length + '">' + location[i].city + '</td>';
+                  }
+                  tbody += '<td>' + data[j].tmEf + '</td>';
+                  tbody += '<td>' + data[j].wf + '</td>';
+                  tbody += '<td>' + data[j].tmx + '</td>';
+                  tbody += '<td>' + data[j].tmn + '</td>';
+                  tbody += '</tr>';
+                }
+              }
+            }
+            tbody += '</tbody>';
+            var str = '<table border="1">';
+            str += '<thead><tr>';
+            str += '<td>지역</td>';
+            str += '<td>도시</td>';
+            str += '<td>시간</td>';
+            str += '<td>날씨</td>';
+            str += '<td>최저온도</td>';
+            str += '<td>최고온도</td>';
+            str += '</tr></thead>';
+            str += tbody;
+            str += '</table>';
+            document.getElementById('weather').innerHTML = str;
+            document.getElementById('first_row').setAttribute('rowspan', rowspan);
+          }
+        }
+      })
 
     })
 
