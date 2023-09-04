@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+  <book>
+    <title>홍길동전</title>
+    <author>허균</author>
+  </book>
+  <book>
+    <title>소나기</title>
+    <author>황순원</author>
+  </book>
+</books>

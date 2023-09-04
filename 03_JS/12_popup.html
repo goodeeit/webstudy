@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      box-sizing: border-box;
+    }
+    .wrap {
+      width: 615px;
+      height: 480px;
+      margin: 10px auto;
+    }
+    .footer {
+      border-top: 1px solid gray;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+
+    /*
+      이벤트 대상 : window
+      이벤트 타입 : load
+      이벤트 설명 : 본문을 모두 읽은 뒤에 이벤트 리스너를 처리하는 이벤트
+    */
+
+    addEventListener('load', function(){
+      sendMsg();
+      closeWindow();
+    })
+    
+    function sendMsg(){
+      document.getElementById('btn_send').addEventListener('click', function(){
+        // 12_browser_object.html           ←  12_popup.html
+        //    <div id="receive_msg"></div>  ←     <input id="send_msg">
+        // opener : 현재 창을 열어 준 부모창을 의미함
+        opener.document.getElementById('receive_msg').textContent = document.getElementById('send_msg').value;
+      })
+    }
+
+    function closeWindow(){
+      document.getElementById('btn_close').addEventListener('click', function(){
+        window.close();
+      })
+    }
+ 
+  </script>
+
+  <div class="wrap">
+    <h1>팝업창</h1>
+    <div id="receive_msg">여기에 받은 메시지가 표시됩니다.</div>
+    <div>
+      <label for="send_msg">전송 메시지</label>
+      <input type="text" id="send_msg">
+      <input type="button" value="전송" id="btn_send">
+    </div>
+    <div class="footer">
+      <input type="button" value="닫기" id="btn_close">
+    </div>
+  </div>
+
+</body>
+</html>
