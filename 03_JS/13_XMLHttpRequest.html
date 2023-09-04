@@ -145,14 +145,72 @@
 
 
   <div class="wrap3">
-    <input type="button" value="JSON요청" id="btn_json_request">
-    <div id="json_response"></div>
+    <input type="button" value="JSON요청1" id="btn_json_request1">
+    <div id="json_response1"></div>
   </div>
   <script>
+
+    document.getElementById('btn_json_request1').addEventListener('click', function(){
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'book1.json', true);
+      xhr.send();
+      xhr.addEventListener('readystatechange', function(){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var data = JSON.parse(xhr.responseText);
+            var str = '';
+            for(let i = 0; i < data.length; i++){
+              str += '<ul>';
+              str += '<li>' + data[i].title + '</li>';  // data[i].title === data[i]['title']
+              str += '<li>' + data[i].author + '</li>';
+              str += '</ul>';
+            }
+            document.getElementById('json_response1').innerHTML = str;
+          }
+        }
+
+      });
+
+    })
 
   </script>
 
 
+  <hr>
+
+
+  <div class="wrap4">
+    <input type="button" value="JSON요청2" id="btn_json_request2">
+    <div id="json_response2"></div>
+  </div>
+  <script>
+
+    document.getElementById('btn_json_request2').addEventListener('click', function(){
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'book2.json', true);
+      xhr.send();
+      xhr.addEventListener('readystatechange', function(){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var data = JSON.parse(xhr.responseText);
+            var str = '';
+            for(let i = 0; i < data.books.length; i++){
+              str += '<ul>';
+              str += '<li>' + data.books[i].title + '</li>';
+              str += '<li>' + data.books[i].author + '</li>';
+              str += '</ul>';
+            }
+            document.getElementById('json_response2').innerHTML = str;
+          }
+        }
+        
+      })
+
+    })
+
+  </script>
 
 
 </body>
