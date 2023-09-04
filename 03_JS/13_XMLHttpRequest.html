@@ -218,6 +218,8 @@
 
   <!-- 문제1. sfc_web_map.xml 읽어서 테이블로 표시하기(지역명, 날씨, 온도) -->
   <div class="wrap5">
+    <input type="button" value="날씨읽기" id="btn_get_xml">
+    <input type="button" value="초기화" id="btn_init">
     <table border="1">
       <thead>
         <tr>
@@ -231,31 +233,54 @@
     </table>
   </div>
   <script>
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', 'sfc_web_map.xml', true);
-    xhr.send();
-    xhr.addEventListener('readystatechange', function(){
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
-          var data = xhr.responseXML;
-          var local = data.getElementsByTagName('local');
-          var str = '';
-          for(let i = 0; i < local.length; i++){
-            str += '<tr>';
-            str += '<td>' + (i + 1) + '</td>';
-            str += '<td>' + local[i].textContent + '</td>';
-            str += '<td>' + local[i].getAttribute('desc') + '</td>';
-            str += '<td>' + local[i].getAttribute('ta') + '</td>';
-            str += '</tr>';
+
+    document.getElementById('btn_get_xml').addEventListener('click', function(){
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'sfc_web_map.xml', true);
+      xhr.send();
+      xhr.addEventListener('readystatechange', function(){
+        if(xhr.readyState === 4){
+          if(xhr.status === 200){
+            var data = xhr.responseXML;
+            var local = data.getElementsByTagName('local');
+            var str = '';
+            for(let i = 0; i < local.length; i++){
+              str += '<tr>';
+              str += '<td>' + (i + 1) + '</td>';
+              str += '<td>' + local[i].textContent + '</td>';
+              str += '<td>' + local[i].getAttribute('desc') + '</td>';
+              str += '<td>' + local[i].getAttribute('ta') + '</td>';
+              str += '</tr>';
+            }
+            document.getElementById('sfc_web_map').innerHTML = str;
           }
-          document.getElementById('sfc_web_map').innerHTML = str;
         }
-      }
+      })
     })
+
+    document.getElementById('btn_init').addEventListener('click', function(){
+      document.getElementById('sfc_web_map').innerHTML = '';
+    })
+
   </script>
 
 
+  <hr>
+
+
   <!-- 문제2. weather.json 읽어서 테이블로 표시하기(지역명: "서울ㆍ인천ㆍ경기도", 시간, 날씨, 최저온도, 최고온도) -->
+  <div class="wrap6">
+    <input type="button" value="날씨읽기" id="btn_get_json">
+    <div id="weather">
+    </div>
+  </div>
+  <script>
+
+    document.getElementById('btn_get_json').addEventListener('click', function(){
+
+    })
+
+  </script>
 
 
 </body>
