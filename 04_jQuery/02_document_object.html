@@ -28,6 +28,9 @@
   </script>
 
 
+  <hr>
+
+
   <div class="ott_wrap">
     <ul class="ott">
       <li id="watcher">
@@ -92,7 +95,88 @@
     var sibling = $('#netflex').prev('li');  // prev 메소드 (#netflex의 이전 형제 하나)
     console.log(sibling);
 
+    // 5. 부모
+    var parent = $('#netflex').parent();        // 부모
+    console.log(parent);
+
+    var parent = $('#netflex').closest('div');  // 가장 가까운 div 부모
+    console.log(parent);
+
+    var parent = $('#netflex').parents();       // 모든 부모
+    console.log(parent);
+
   </script>
+
+
+  <hr>
+
+  <div class="post" data-post="1">
+    <h1 class="title">제목1</h1>
+    <div class="content">내용1</div>
+    <input type="button" value="삭제" class="btn_remove">
+  </div>
+  <div class="post" data-post="2">
+    <h1 class="title">제목2</h1>
+    <div class="content">내용2</div>
+    <input type="button" value="삭제" class="btn_remove">
+  </div>
+
+  <hr>
+
+  <div class="post">
+    <h1 class="title" data-post="1">제목1</h1>
+    <div class="content">내용1</div>
+    <input type="button" value="삭제" class="btn_remove">
+  </div>
+  <div class="post">
+    <h1 class="title" data-post="2">제목2</h1>
+    <div class="content">내용2</div>
+    <input type="button" value="삭제" class="btn_remove">
+  </div>
+
+  <hr>
+
+  <div class="post">
+    <h1 class="title">제목1</h1>
+    <div class="content" data-post="1">내용1</div>
+    <input type="button" value="삭제" class="btn_remove">
+  </div>
+  <div class="post">
+    <h1 class="title">제목2</h1>
+    <div class="content" data-post="2">내용2</div>
+    <input type="button" value="삭제" class="btn_remove">
+  </div>
+
+  <hr>
+
+  <div class="post">
+    <h1 class="title">제목1</h1>
+    <div class="content">내용1</div>
+    <input type="button" value="삭제" class="btn_remove" data-post="1">
+  </div>
+  <div class="post">
+    <h1 class="title">제목2</h1>
+    <div class="content">내용2</div>
+    <input type="button" value="삭제" class="btn_remove" data-post="2">
+  </div>
+
+  <hr>
+
+  <div class="post">
+    <h1 class="title">제목1</h1>
+    <div class="content">내용1</div>
+    <input type="button" value="삭제" class="btn_remove">
+    <input type="hidden" value="1">
+  </div>
+  <div class="post">
+    <h1 class="title">제목2</h1>
+    <div class="content">내용2</div>
+    <input type="button" value="삭제" class="btn_remove">
+    <input type="hidden" value="2">
+  </div>
+
+  <hr>
+
 
 
 </body>
