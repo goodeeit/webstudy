@@ -262,7 +262,9 @@
       property 삭제하기   | 요소.속성      | 요소.removeProp('속성') : built-in property 삭제 금지
                           | 요소['속성']   | 요소.removeProp('속성') : built-in property 삭제 금지
     */
+    
     var radio = $('#p4 > :radio:checked');
+    
     console.log(radio.prop('type'));         // 'radio'
     console.log(radio.prop('name'));         // 'gender'
     console.log(radio.prop('id'));           // 'male'
@@ -271,7 +273,46 @@
     console.log(radio.prop('data-gender'));  // undefined,  data- 속성을 다루는 메소드는 별도로 존재함, data()
     console.log(radio.prop('checked'));      // true,       동일한 결과 : radio.is(':checked')
     
+    radio.prop('id', 'man');
+    radio.next().prop('for', 'man');  // 동일한 결과 : radio.next().attr('for', 'man')
+    radio.prop('checked', false);
+
   </script>
+
+
+  <hr>
+
+
+  <!-- CSS 처리하기 -->
+  <p id="p5">Hello World</p>
+  <script>
+    /*
+                        | JavaScript                       | jQuery
+      ------------------|----------------------------------|--------------------
+      css속성 가져오기  | 요소.style.fontSize              | 요소.css('font-size')
+                        | 요소.style['font-size']          | 요소.css('font-size')
+      css속성 설정하기  | 요소.style.fontSize = '32px'     | 요소.css('font-size', '32px')
+                        | 요소.style['font-size'] = '32px' | 요소.css('font-size', '32px') 
+    */
+    var p5 = $('#p5');
+    p5.css('font-size', '32px').css('font-weight', '900');
+    p5.css({
+      'background-color': 'crimson',
+      'border': '1px solid gray'
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
   <hr>
 
