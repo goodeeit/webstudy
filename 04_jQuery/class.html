@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+  <style>
+    .big {
+      font-size: 32px;
+    }
+    .small {
+      font-size: 8px;
+    }
+    .visible {
+      /* visibility: visible;  */
+      /* opacity: 1;           */
+      /* display: block;       */
+      /* color: rgba(0,0,0,1); */
+      position: relative;
+      top: 0;
+    }
+    .invisible {
+      /* visibility: hidden;   */  /* 존재하지만 보이지 않는다. */
+      /* opacity: 0;           */  /* 존재하지만 보이지 않는다.(투명) */
+      /* display: none;        */  /* 존재하지 않는다. */
+      /* color: rgba(0,0,0,0); */  /* 존재하지만 보이지 않는다.(글자투명) */
+      position: relative;          /* top 속성을 주기 위해서는 position: static;(디폴트)일 수 없다. */
+      top: -999999px;              /* 화면 밖으로 나가서 보이지 않는다. */
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="box1">Hello World</div>
+  <div id="box2">Hello World</div>
+  <script>
+
+    // class 속성 추가하기
+    $('#box1').addClass('big').addClass('visible');  // 메소드 체이닝으로 2개의 class 지정하기
+    $('#box2').addClass('small invisible');          // 공백으로 구분해서 2개의 class 지정하기
+
+    // class 속성 제거하기
+    $('#box1').removeClass('visible');
+    $('#box2').removeClass('invisible');
+
+    // class 속성 확인하기
+    if($('#box1').hasClass('big')){
+      $('#box1').removeClass('big');
+      $('#box1').addClass('small');
+    }
+
+    // class 속성 토글(추가와 제거가 번갈아가면서 적용되는 것)
+    $('#box1').toggleClass('small');                       // <div id="box1" class="small"> → <div id="box1" class="">
+    $('#box2').toggleClass('small').toggleClass('small');  // <div id="box2" class="small"> → <div id="box2" class=""> → <div id="box2" class="small">
+
+  </script>
+
+</body>
+</html>
