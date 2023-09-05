@@ -110,20 +110,170 @@
 
   <hr>
 
+
+  <div class="form_wrap">
+    <form id="frm">
+      <div><input type="text"></div>
+      <div><input type="password"></div>
+      <div>
+        <input type="radio" name="gender" value="man">남자
+        <input type="radio" name="gender" value="woman">여자
+        <input type="radio" name="gender" value="none" checked>선택안함
+      </div>
+      <div>
+        <input type="checkbox" name="hobbies" value="travel">여행
+        <input type="checkbox" name="hobbies" value="tracking">트래킹
+        <input type="checkbox" name="hobbies" value="cycle" checked>사이클
+      </div>
+      <div>
+        <select>
+          <option value="">선택하세요</option>
+          <option value="A" selected>A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <script>
+
+    // type 속성으로 알아내기
+    var text = $('input[type=text]');
+    console.log(text);
+
+    var text = $(':text');
+    console.log(text);
+
+    var password = $(':password');
+    console.log(password);
+
+    var radio = $(':radio');
+    console.log(radio);
+
+    var checkbox = $(':checkbox');
+    console.log(checkbox);
+
+    // 상태 지정하기
+    var text = $(':focus');  // 포커스를 가진 요소
+    console.log(text);
+
+    var radioChecked = $(':radio:checked');  // 체크된 radio
+    console.log(radioChecked);
+
+    var checkboxChecked = $(':checkbox:checked')  // 체크된 checkbox
+    console.log(checkboxChecked);
+
+    var selected = $(':selected');  // 선택된 요소(<select> 태그)
+    console.log(selected);
+
+    // 상태 확인하기
+    // is(':focus')     포커스를 가졌다면 true 반환
+    // is(':checked')   체크되었다면 true 반환
+    // is(':selected')  선택되었다면 true 반환
+
+    if($(':radio').is(':checked')){
+      console.log('radio 체크됨');
+    } else {
+      console.log('raio 체크안됨');
+    }
+
+  </script>
+
+
+  <hr>
+
+
+  <!-- 태그 내부 텍스트 -->
+  <p id="p1">Hello World</p>
+  <script>
+    // JavaScript의 textContent 속성 == jQuery의 text() 메소드
+    // 요소.text()      : getter
+    // 요소.text(param) : setter
+    var p1 = $('#p1');
+    console.log(p1.text());
+    p1.text('안녕하세요. 반갑습니다.');
+  </script>
+
+
+  <hr>
+
+  
+  <!-- 태그 내부 요소 -->
+  <p id="p2"><strong>Hello World</strong></p>
+  <script>
+    // JavaScript의 innerHTML 속성 == jQuery의 html() 메소드
+    // 요소.html()      : getter
+    // 요소.html(param) : setter
+    var p2 = $('#p2');
+    console.log(p2.html());
+    p2.html('<mark>안녕하세요. 반갑습니다.</mark>');
+  </script>
+
+
+  <hr>
+
+
+  <!-- 태그 속성 -->
+  <p id="p3">
+    <img src="../../assets/image/flower1.jpg" width="384px">
+  </p>
+  <script>
+    // JavaScript의 Attribute 다루기 == jQuery의 Attribute 다루기
+    // 요소.getAttribute('속성')        요소.attr('속성')
+    // 요소.setAttribute('속성', '값')  요소.attr('속성', '값')
+    // 요소.removeAttribute('속성')     요소.removeAttr('속성')
+    var img = $('#p3 > img');
+    console.log(img.attr('src'));
+    console.log(img.attr('width'));
+    img.attr('src', '../../assets/image/flower2.jpg');
+    img.attr('width', '192px');
+    img.removeAttr('src');
+    img.removeAttr('width');
+  </script>
+
+
+  <hr>
+
+
+  <!-- 객체 속성 -->
+  <p id="p4">
+    <input type="radio" name="gender" value="M" id="male" class="blind" checked="checked">
+    <label for="male">남자</label>
+    <input type="radio" name="gender" value="F" id="female" class="blind">
+    <label for="female">여자</label>
+  </p>
+  <script>
+
+    // JavaScript의 property 다루기 == jQuery의 property 다루기
+    // 요소.프로퍼티                   요소.prop('프로퍼티')
+    // 요소['프로퍼티']                요소.prop('프로퍼티')
+    // 요소.프로퍼티 = 값              요소.prop('프로퍼티', '값')
+    // 요소['프로퍼티'] = 값           요소.prop('프로퍼티', '값')
+    // delete 요소.프로퍼티            요소.removeProp('프로퍼티') : built-in property 삭제 금지
+    // delete 요소['프로퍼티']         요소.removeProp('프로퍼티') : built-in property 삭제 금지
+    var radio = $(':radio:checked');
+    console.log(radio.prop('id'));
+    console.log(radio.prop('class'));
+    console.log(radio.prop('checked'));
+    
+  </script>
+
+  <hr>
+
   <div class="post" data-post="1">
     <h1 class="title">제목1</h1>
     <div class="content">내용1</div>
-    <input type="button" value="삭제" class="btn_remove">
+    <input type="button" value="삭제" class="btn_remove1">
   </div>
   <div class="post" data-post="2">
     <h1 class="title">제목2</h1>
     <div class="content">내용2</div>
-    <input type="button" value="삭제" class="btn_remove">
+    <input type="button" value="삭제" class="btn_remove1">
   </div>
   <script>
-    var target = $('.btn_remove').parent();
+    var target = $('.btn_remove1').parent();
     console.log(target);
-    var target = $('.btn_remove').closest('div');
+    var target = $('.btn_remove1').closest('.post');
     console.log(target);
   </script>
 
@@ -132,54 +282,72 @@
   <div class="post">
     <h1 class="title" data-post="1">제목1</h1>
     <div class="content">내용1</div>
-    <input type="button" value="삭제" class="btn_remove">
+    <input type="button" value="삭제" class="btn_remove2">
   </div>
   <div class="post">
     <h1 class="title" data-post="2">제목2</h1>
     <div class="content">내용2</div>
-    <input type="button" value="삭제" class="btn_remove">
+    <input type="button" value="삭제" class="btn_remove2">
   </div>
+  <script>
+    var target = $('.btn_remove2').prev().prev();
+    console.log(target);
+    var target = $('.btn_remove2').prevAll('.title');
+    console.log(target);
+  </script>
 
   <hr>
 
   <div class="post">
     <h1 class="title">제목1</h1>
     <div class="content" data-post="1">내용1</div>
-    <input type="button" value="삭제" class="btn_remove">
+    <input type="button" value="삭제" class="btn_remove3">
   </div>
   <div class="post">
     <h1 class="title">제목2</h1>
     <div class="content" data-post="2">내용2</div>
-    <input type="button" value="삭제" class="btn_remove">
+    <input type="button" value="삭제" class="btn_remove3">
   </div>
+  <script>
+    var target = $('.btn_remove3').prev();
+    console.log(target);
+  </script>
 
   <hr>
 
   <div class="post">
     <h1 class="title">제목1</h1>
     <div class="content">내용1</div>
-    <input type="button" value="삭제" class="btn_remove" data-post="1">
+    <input type="button" value="삭제" class="btn_remove4" data-post="1">
   </div>
   <div class="post">
     <h1 class="title">제목2</h1>
     <div class="content">내용2</div>
-    <input type="button" value="삭제" class="btn_remove" data-post="2">
+    <input type="button" value="삭제" class="btn_remove4" data-post="2">
   </div>
+  <script>
+    var target = $('.btn_remove4');
+    console.log(target);
+  </script>
 
   <hr>
 
   <div class="post">
     <h1 class="title">제목1</h1>
     <div class="content">내용1</div>
-    <input type="button" value="삭제" class="btn_remove">
+    <input type="button" value="삭제" class="btn_remove5">
     <input type="hidden" value="1">
   </div>
   <div class="post">
     <h1 class="title">제목2</h1>
     <div class="content">내용2</div>
-    <input type="button" value="삭제" class="btn_remove">
+    <input type="button" value="삭제" class="btn_remove5">
     <input type="hidden" value="2">
   </div>
+  <script>
+    var target = $('.btn_remove5').next();
+    console.log(target);
+  </script>
 
   <hr>
 
