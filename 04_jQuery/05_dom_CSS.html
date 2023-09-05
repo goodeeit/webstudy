@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+
+  <!-- CSS 처리하기 -->
+  <p id="p1">Hello World</p>
+  <script>
+    
+    /*
+
+                        | JavaScript                       | jQuery
+      ------------------|----------------------------------|--------------------
+      css속성 가져오기  | 요소.style.fontSize              | 요소.css('font-size')
+                        | 요소.style['font-size']          | 요소.css('font-size')
+      css속성 설정하기  | 요소.style.fontSize = '32px'     | 요소.css('font-size', '32px')
+                        | 요소.style['font-size'] = '32px' | 요소.css('font-size', '32px') 
+    */
+
+    // jQuery 객체 생성
+    var p1 = $('#p1');
+
+    // 메소드 체이닝을 이용한 CSS 적용
+    p1.css('font-size', '32px').css('font-weight', '900');
+
+    // 객체 전달을 이용한 CSS 적용
+    p1.css({
+      'background-color': 'crimson',
+      'border': '1px solid gray'
+    });
+
+  </script>
+
+
+</body>
+</html>

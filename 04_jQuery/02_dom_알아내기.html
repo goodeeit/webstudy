@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  
+
+  <div id="box" class="wrap"></div>
+  <script>
+
+    // 1. 태그로 인식하면 배열
+    var div = $('div');     // getElementsByTagName('div')
+    console.log(div);
+
+    // 2. id로 인식하면 객체
+    var box = $('#box');    // getElementById('box')
+    console.log(box);
+
+    // 3. class로 인식하면 배열
+    var wrap = $('.wrap');  // getElementsByClassName('wrap')
+    console.log(wrap);
+
+  </script>
+
+
+  <hr>
+
+
+  <div class="ott_wrap">
+    <ul class="ott">
+      <li id="watcher">
+        <a href="#">왓차</a>
+      </li>
+      <li id="coupangplay">
+        <a href="#">쿠팡플레이</a>
+      </li>
+      <li id="netflex">
+        <a href="#">넷플릭스</a>
+      </li>
+      <li id="disneyplus">
+        <a href="#">디즈니플러스</a>
+      </li>
+      <li id="wave">
+        <a href="#">웨이브</a>
+      </li>
+    </ul>
+  </div>
+  <script>
+
+    // 1. 자식
+    var ott = $('.ott_wrap > .ott');        // 자식 선택자
+    console.log(ott);
+    
+    var ott = $('.ott_wrap').find('.ott');  // find 메소드
+    console.log(ott);
+
+    var ott = $('.ott_wrap').children();    // .ott_wrap의 모든 자식
+    console.log(ott);
+
+    // 2. 후손
+    var li = $('.ott_wrap li');                     // 후손 선택자
+    console.log(li);
+
+    var li = $('.ott_wrap').find('li');             // find 메소드
+    console.log(li);
+
+    var li = $('.ott_wrap').children().children();  // .ott_wrap의 자식의 자식
+    console.log(li);
+
+    // 3. 모든 형제
+    var sibling = $('#netflex ~ li');            // 모든 형제 선택자 (#nexflex 다음 모든 형제)
+    console.log(sibling);
+    
+    var sibling = $('#netflex').nextAll('li');   // nextAll 메소드 (#netflex 다음 모든 형제)
+    console.log(sibling);
+
+    var sibling = $('#netflex').siblings('li');  // siblings 메소드 (#netflex의 모든 형제)
+    console.log(sibling);
+
+    var sibling = $('#netflex').prevAll('li');   // prevAll 메소드 (#netflex 이전 모든 형제)
+    console.log(sibling);
+
+    // 4. 인접 형제
+    var sibling = $('#netflex + li');        // 인접 형제 선택자 (#netflex의 다음 형제 하나)
+    console.log(sibling);
+
+    var sibling = $('#netflex').next('li');  // next 메소드 (#netflex의 다음 형제 하나)
+    console.log(sibling);
+
+    var sibling = $('#netflex').prev('li');  // prev 메소드 (#netflex의 이전 형제 하나)
+    console.log(sibling);
+
+    // 5. 부모
+    var parent = $('#netflex').parent();        // 부모
+    console.log(parent);
+
+    var parent = $('#netflex').closest('div');  // 가장 가까운 div 부모
+    console.log(parent);
+
+    var parent = $('#netflex').parents();       // 모든 부모
+    console.log(parent);
+
+  </script>
+
+
+  <hr>
+
+
+  <div class="form_wrap">
+    <form id="frm">
+      <div><input type="text"></div>
+      <div><input type="password"></div>
+      <div>
+        <input type="radio" name="gender" value="man">남자
+        <input type="radio" name="gender" value="woman">여자
+        <input type="radio" name="gender" value="none" checked>선택안함
+      </div>
+      <div>
+        <input type="checkbox" name="hobbies" value="travel">여행
+        <input type="checkbox" name="hobbies" value="tracking">트래킹
+        <input type="checkbox" name="hobbies" value="cycle" checked>사이클
+      </div>
+      <div>
+        <select>
+          <option value="">선택하세요</option>
+          <option value="A" selected>A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <script>
+
+    // type 속성으로 알아내기
+    var text = $('input[type=text]');
+    console.log(text);
+
+    var text = $(':text');
+    console.log(text);
+
+    var password = $(':password');
+    console.log(password);
+
+    var radio = $(':radio');
+    console.log(radio);
+
+    var checkbox = $(':checkbox');
+    console.log(checkbox);
+
+    // 상태 지정하기
+    var text = $(':focus');  // 포커스를 가진 요소
+    console.log(text);
+
+    var radioChecked = $(':radio:checked');  // 체크된 radio
+    console.log(radioChecked);
+
+    var checkboxChecked = $(':checkbox:checked')  // 체크된 checkbox
+    console.log(checkboxChecked);
+
+    var selected = $(':selected');  // 선택된 요소(<select> 태그)
+    console.log(selected);
+
+    // 상태 확인하기
+    // is(':focus')     포커스를 가졌다면 true 반환
+    // is(':checked')   체크되었다면 true 반환
+    // is(':selected')  선택되었다면 true 반환
+
+    if($(':radio').is(':checked')){
+      console.log('radio 체크됨');
+    } else {
+      console.log('raio 체크안됨');
+    }
+
+  </script>
+
+
+</body>
+</html>

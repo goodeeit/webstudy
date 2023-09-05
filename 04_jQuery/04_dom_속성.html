@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  
+  
+  <!-- 태그 속성 -->
+  <p id="p1">
+    <img src="../../assets/image/flower1.jpg" width="384px">
+  </p>
+  <script>
+
+    /*
+                          | JavaScript                     | jQuery
+      --------------------|--------------------------------|--------------------
+      attribute 가져오기  | 요소.getAttribute('속성')      | 요소.attr('속성')
+      attribute 설정하기  | 요소.setAttribute('속성', 값)  | 요소.attr('속성', 값)
+      attribute 삭제하기  | 요소.removeAttribute('속성')   | 요소.removeAttr('속성')
+    */
+
+    // jQuery 객체 생성
+    var img = $('#p1 > img');
+
+    // attribute 확인
+    console.log(img.attr('src'));
+    console.log(img.attr('width'));
+
+    // attribute 설정
+    img.attr('src', '../../assets/image/flower2.jpg');
+    img.attr('width', '192px');
+
+    // attribute 제거
+    img.removeAttr('src');
+    img.removeAttr('width');
+
+  </script>
+
+
+  <hr>
+
+
+  <!-- 객체 속성 -->
+  <p id="p2">
+    <input type="radio" name="gender" value="M" id="male" class="blind" checked="checked" data-gender="1">
+    <label for="male">남자</label>
+    <input type="radio" name="gender" value="F" id="female" class="blind" data-gender="2">
+    <label for="female">여자</label>
+  </p>
+  <script>
+
+    /*
+                          | JavaScript     | jQuery
+      --------------------|----------------|--------------------
+      property 가져오기   | 요소.속성      | 요소.prop('속성')
+                          | 요소['속성']   | 요소.prop('속성')
+      property 설정하기   | 요소.속성      | 요소.prop('속성', 값)
+                          | 요소.['속성']  | 요소.prop('속성', 값) 
+      property 삭제하기   | 요소.속성      | 요소.removeProp('속성') : built-in property 삭제 금지
+                          | 요소['속성']   | 요소.removeProp('속성') : built-in property 삭제 금지
+    */
+    
+    // jQuery 객체 생성
+    var radio = $('#p2 > :radio:checked');
+    
+    // property 확인
+    console.log(radio.prop('type'));         // 'radio'
+    console.log(radio.prop('name'));         // 'gender'
+    console.log(radio.prop('id'));           // 'male'
+    console.log(radio.prop('class'));        // 'blind',    class 속성을 다루는 메소드는 별도로 존재함, addClass(), removeClass(), toggleClass()
+    console.log(radio.prop('value'));        // 'M',        value 속성을 다루는 메소드는 별도로 존재함, val()
+    console.log(radio.prop('data-gender'));  // undefined,  data- 속성을 다루는 메소드는 별도로 존재함, data()
+    console.log(radio.prop('checked'));      // true,       동일한 결과 : radio.is(':checked')
+    
+    // property 설정
+    radio.prop('id', 'man');
+    radio.next().prop('for', 'man');  // 동일한 결과 : radio.next().attr('for', 'man')
+    radio.prop('checked', false);
+
+  </script>
+
+
+  <!-- value 속성 -->
+
+
+  <hr>
+
+
+  <!-- data- 속성 -->
+
+
+</body>
+</html>
