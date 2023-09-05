@@ -246,9 +246,9 @@
 
   <!-- 객체 속성 -->
   <p id="p4">
-    <input type="radio" name="gender" value="M" id="male" class="blind" checked="checked">
+    <input type="radio" name="gender" value="M" id="male" class="blind" checked="checked" data-gender="1">
     <label for="male">남자</label>
-    <input type="radio" name="gender" value="F" id="female" class="blind">
+    <input type="radio" name="gender" value="F" id="female" class="blind" data-gender="2">
     <label for="female">여자</label>
   </p>
   <script>
@@ -262,10 +262,14 @@
       property 삭제하기   | 요소.속성      | 요소.removeProp('속성') : built-in property 삭제 금지
                           | 요소['속성']   | 요소.removeProp('속성') : built-in property 삭제 금지
     */
-    var radio = $(':radio:checked');
-    console.log(radio.prop('id'));
-    console.log(radio.prop('class'));
-    console.log(radio.prop('checked'));
+    var radio = $('#p4 > :radio:checked');
+    console.log(radio.prop('type'));         // 'radio'
+    console.log(radio.prop('name'));         // 'gender'
+    console.log(radio.prop('id'));           // 'male'
+    console.log(radio.prop('class'));        // 'blind',    class 속성을 다루는 메소드는 별도로 존재함, addClass(), removeClass(), toggleClass()
+    console.log(radio.prop('value'));        // 'M',        value 속성을 다루는 메소드는 별도로 존재함, val()
+    console.log(radio.prop('data-gender'));  // undefined,  data- 속성을 다루는 메소드는 별도로 존재함, data()
+    console.log(radio.prop('checked'));      // true,       동일한 결과 : radio.is(':checked')
     
   </script>
 
