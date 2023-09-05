@@ -120,6 +120,12 @@
     <div class="content">내용2</div>
     <input type="button" value="삭제" class="btn_remove">
   </div>
+  <script>
+    var target = $('.btn_remove').parent();
+    console.log(target);
+    var target = $('.btn_remove').closest('div');
+    console.log(target);
+  </script>
 
   <hr>
 
