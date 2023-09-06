@@ -63,7 +63,41 @@
       }
     ]
 
-    // 테이블 만들기
+    /*
+      <table border="1">
+        <thead>
+          <tr>
+            <td>이름</td><td>나이</td><td>연락처</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>alice</td><td>30</td><td>010-0000-0000</td></tr>
+          <tr><td>james</td><td>40</td><td>010-1111-1111</td></tr>
+        </tbody>
+      </table>
+    */
+    
+    // <table> 태그를 jQuery 객체로 만들기
+    var table = $('<table>').attr('border', 1);
+    
+    // <thead> 태그는 문자열로 전달해서 저장
+    table.append('<thead><tr><td>이름</td><td>나이</td><td>연락처</td></tr></thead>');
+
+    // <tbody> 태그 만들기
+    var tbody = $('<tbody>');
+    $.each(people, function(i, elem){
+      var tr = $('<tr>');
+      tr.append($('<td>').text(elem.name));
+      tr.append($('<td>').text(elem.age));
+      tr.append($('<td>').text(elem.mobile));
+      tbody.append(tr);
+    })
+
+    // <table>에 <tbody> 태그 넣기
+    table.append(tbody);
+
+    // box2에 <table> 넣기
+    $('#box2').append(table);
 
 
   </script>
@@ -95,6 +129,19 @@
         <li><a href="https://www.google.com/" target="_self">구글</a></li>
       </ul>
     */
+
+    // <ul> 태그를 jQuery 객체로 만들기
+    var ul = $('<ul>');
+    
+    // site 배열 순회하면서 <li><a> 태그 만들어 넣기
+    $.each(site, function(i, elem){
+      var li = $('<li>');
+      li.append($('<a>').attr('href', elem.url).attr('target', elem.target).text(elem.host));
+      ul.append(li);
+    })
+
+    // 완성된 <ul> 태그를 box3에 넣기
+    $('#box3').append(ul);
     
   </script>
 
@@ -113,9 +160,18 @@
   </div>
   <script>
 
-    // class="movies"인 요소를 배열로 만들기
+    // class="movies"인 요소를 var movies 배열로 만들기
+    
+    // 비어 있는 배열 생성
+    var movies = [];
 
-    var movies = ['터미네이터', ...]
+    // class="movies" 요소를 순회하면서 내부 텍스트를 꺼내고, 배열에 저장하기
+    $.each($('.movies'), function(i, elem){
+      movies.push($(elem).text());
+    })
+    
+    // 확인
+    console.log(movies);
 
   </script>
 
@@ -133,7 +189,7 @@
   <script>
 
     // id가 region인 요소를 배열로 만들기
-
+    /*
     var region = [
       {
         'name': '서울',
@@ -141,11 +197,30 @@
       },
       ...
     ]
+    */
+
+    // 비어 있는 배열 생성
+    var region = [];
+
+    // id="region" 요소를 순회하면서 내부 텍스트와 value 속성을 꺼내고, 배열에 저장하기
+    $.each($('#region > option'), function(i, elem){
+
+      // 비어 있는 객체 obj 생성
+      var obj = {};
+
+      // 객체 obj에 속성(프로퍼티) 저장
+      obj.name = $(elem).text();
+      obj.tel= $(elem).val();
+
+      // 객체 obj를 배열에 저장하기
+      region.push(obj);
+
+    })
+
+    // 확인
+    console.log(region);
 
   </script>
-
-
-
 
 
 </body>
