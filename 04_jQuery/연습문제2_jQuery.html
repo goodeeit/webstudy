@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    
+  <!-- 1. 버튼을 누르면 전구 이미지가 바뀐다. -->
+  <div id="box1">
+    <div><img src="../../assets/image/light1.png" width="50px"></div>
+    <div><button id="btn_switch" style="width: 50px; text-align: center;">ON</button></div>
+  </div>
+  <script>
+
+  </script>
+
+  <hr>
+
+  <!-- 2. animal1.jpg ~ animal10.jpg 이미지 슬라이드 -->
+  <div id="box2">
+    <div>
+      <button id="btn_prev">이전</button>
+      <span id="img_no"></span>
+      <button id="btn_next">다음</button>
+    </div>
+    <div id="img_box"></div>
+  </div>
+  <style>
+    #box2 div {
+      margin-bottom: 10px;
+    }
+    #img_box {
+      width: 960px;
+      height: 640px;
+      border: 1px solid gray;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+  </style>
+  <script>
+
+  </script>
+
+  <hr>
+
+  <!-- 3. 썸네일을 선택하면 큰 이미지 보여주기 -->
+  <div id="box3">
+    <div id="origin"></div>
+    <ul id="thumbnails"></ul>
+  </div>
+  <style>
+    #box3 {
+      width: 960px;
+    }
+    #box3 li {
+      box-sizing: border-box;
+    }
+    #origin {
+      width: 100%;
+      height: 640px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    #thumbnails {
+      width: 100%;
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    #thumbnails > li {
+      width: 96px;
+      height: 64px;
+      margin: 10px 10px 0 10px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      border: 5px solid rgba(0,0,0,0);
+    }
+  </style>
+  <script>
+
+  </script>
+
+  <hr>
+
+  <!-- 문제4. 전체선택/개별선택 체크하기 -->
+  <div id="box4">
+    <div>
+      <input type="checkbox" id="chk_all">
+      <label for="chk_all">전체선택</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_one" class="chk_each">
+      <label for="chk_one">개별선택1</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_two" class="chk_each">
+      <label for="chk_two">개별선택2</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_three" class="chk_each">
+      <label for="chk_three">개별선택3</label>
+    </div>
+  </div>
+  <style>
+    #box4 label {
+      padding-left: 20px;
+      display: block;
+      background-image: url(../../assets/image/check1.png);
+      background-repeat: no-repeat;
+      background-size: 16px;
+      background-position: 0 3px;
+      cursor: pointer;
+    }
+    #box4 > div input[type=checkbox] {
+      display: none;
+    }
+    #box4 label.checked {
+      background-image: url(../../assets/image/check2.png);
+    }
+  </style>
+  <script>
+
+  </script>
+
+  <hr>
+
+  <!-- 문제5. 정답 보이기/숨기기 -->
+  <div id="box5">
+    <h1>프론트엔드 과목이 아닌 것은?</h1>
+    <ol>
+      <li>JavaScript</li>
+      <li>Java</li>
+      <li>CSS</li>
+      <li>HTML</li>
+    </ol>
+    <input type="button" value="정답보기" id="btn_answer" data-state="hide">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="answer">2</span>
+  </div>
+  <style>
+    #answer {
+      display: none;
+    }
+  </style>
+  <script>
+    // 문제5. 버튼을 클릭하면 아래와 같이 동작하도록 구현하시오.
+    // 버튼상태 : '정답보기' <-> '정답숨기기' 변환
+    // 정답     :  안보임    <->  보임        변환
+    // data-state="hide"이면 안보임 상태이고, data-state="show"이면 보임 상태로 처리할 것
+    
+  </script>
+
+  <hr>
+
+  <!-- 문제6. 추첨 프로그램 -->
+  <div id="box6">
+    <button id="btn_pick">추첨</button>
+    <h1>남은 메뉴 : <span id="menu_list"></span></h1>
+    <h1>선택 메뉴 : <span id="pick"></span></h1>
+  </div>
+  <script>
+    // 문제6. 아래 배열의 요소를 임의로 하나씩 선택해서 추첨 버튼을 클릭할때마다 배열에서 제거하시오.
+    // 배열에서 제거된 메뉴는 선택 메뉴에서 표시하고 배열에 있는 메뉴는 남은 메뉴에서 표시하시오.
+    var menu = ['제육', '순두부', '국수', '피자', '순대국', '족발'];
+    
+  </script>
+
+  <hr>
+
+  <!-- 문제7. form 태그 없이 네이버 검색 구현하기 -->
+  <div id="box7">
+    <input type="text" id="query" placeholder="검색어를 입력해 주세요">
+    <input type="button" value="검색" id="btn_naver_search">
+  </div>
+  <script>
+    // 문제7. 오직 한글만 검색할 수 있도록 처리하시오.
+    
+  </script>
+
+</body>
+</html>
