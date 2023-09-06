@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+  <style>
+    #img {
+      width: 576px;
+      height: 384px;
+      background-image: url(../../assets/image/flower1.jpg);
+      background-size: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div>
+    <button onclick="location.reload()">새로고침</button>
+    <button id="btn_open">열기</button>
+    <button id="btn_close">닫기</button>
+    <button id="btn_toggle">토글</button>
+  </div>
+  <div id="img"></div>
+
+
+  <script>
+
+
+    /*
+      닫기 효과
+      1. hide()     : 그냥 닫힌다.
+      2. fadeOut()  : 서서히 닫힌다.
+      3. fadeTo()   : 서서히 투명해진다.
+      4. slideUp()  : 위로 슬라이드되면서 닫힌다.
+    */
+    $('#btn_close').click(function(){
+      // $('#img').hide();
+      /*
+      $('#img').fadeOut(2000, 'linear', function(){
+        alert('닫혔습니다.');
+      });  // 2초 동안 서서히 닫힌다. 일정하게 닫힌다. 닫히면 function(){}이 실행된다.
+      */
+      /*
+      $('#img').slideUp(2000, 'linear', function(){
+        alert('닫혔습니다.');
+      });  // 2초 동안 위로 슬라이드되면서 닫힌다. 일정하게 닫힌다. 닫히면 function(){}이 실행된다.
+      */
+      $('#img').fadeTo(2000, 0.5);  // 2초 동안 opacity: 0.5로 조정한다.
+    })
+
+
+    /*
+      열기 효과
+      1. show()      : 그냥 나타난다.
+      2. fadeIn()    : 서서히 나타난다.
+      3. slideDown() : 아래로 슬라이드되면서 나타난다.
+    */
+
+    $('#btn_open').click(function(){
+      // $('#img').show();
+      /*
+      $('#img').fadeIn(2000, 'swing', function(){
+        alert('열렸습니다.');
+      });  // 2초 동안 서서히 나타난다. 속도가 다르게 열린다. 열리면 function(){}이 실행된다.
+      */
+      /*
+      $('#img').slideDown(2000, 'linear', function(){
+        alert('열렸습니다.');
+      });  // 2초 동안 아래로 슬라이트되면서 나타난다. 속도가 다르게 나타난다. 나타나면 function(){}이 실행된다.
+      */
+    })
+
+
+    /*
+      토글 효과
+      1. toggle()      : 그냥 나타났다 사라진다.
+      2. fadeToggle()  : 서서히 나타났다 사라진다.
+      3. slideToglle() : 위/아래로 슬라이드되면서 나타났다 사라진다.
+    */
+    $('#btn_toggle').click(function(){
+      // $('#img').toggle();
+      // $('#img').fadeToggle();
+      $('#img').slideToggle();
+    })
+
+
+  </script>
+
+
+</body>
+</html>
