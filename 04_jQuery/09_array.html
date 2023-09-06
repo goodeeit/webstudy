@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  
+
+  <div id="box1"></div>
+  <script>
+
+    // 배열 생성 및 초기화
+    var fourSeason = ['spring', 'summer', 'autumn', 'winter'];
+
+    // 배열 요소 순회 each() 메소드
+    $.each(fourSeason, function(i){        // i : 배열 인덱스
+      console.log(i, fourSeason[i]);
+    })
+    $.each(fourSeason, function(i, elem){  // i : 배열 인덱스,  elem : 배열 요소
+      console.log(i, elem);
+    })
+
+    /*
+                  <ol>
+      1. spring     <li>spring</li>
+      2. summer     <li>summer</li>
+      3. autumn     <li>autumn</li>
+      4. winter     <li>winter</li>
+                  </ol>
+    */
+
+    var ol = $('<ol>');
+    
+    $.each(fourSeason, function(i, elem){
+      ol.append($('<li>').text(elem));
+    })
+
+    $('#box1').append(ol);
+
+  </script>
+
+
+</body>
+</html>
