@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  
+
+  <div id="box"></div>
+  <script>
+
+    // 객체 생성
+    var obj = {
+      'name': '홍길동',
+      'age': 30
+    };
+
+    // 속성(프로퍼티) 추가 extend() 메소드
+    $.extend(
+      obj,      // 객체 obj에 속성을 추가하겠다
+      {
+        'mobile': '010-1111-1111',
+        'address': 'seoul'
+      }
+    )
+
+    // 속성(프로퍼티) 순회 each() 메소드
+    
+    // 1. 속성만 순회하기
+    $.each(obj, function(p){
+      console.log(p, obj.p, obj[p]);  // p는 string 타입이므로 obj.p는 지원하지 않고, obj[p]만 가능하다.
+    })
+
+    // 2. 속성과 값 모두 순회하기
+    $.each(obj, function(p, value){
+      console.log(p, value);
+    })
+
+
+    /*
+                        <dl>
+      name                <dt>name</dt>
+        홍길동            <dd>홍길동</dd>
+      age                 <dt>age</dt>
+        30                <dd>30</dd>
+      mobile              <dt>mobile</dt>
+        010-1111-1111     <dd>010-1111-1111</dd>
+      address             <dt>address</dt>
+        seoul             <dd>seoul</dd>
+                        </dl>
+    */
+
+    var dl = $('<dl>');
+    $.each(obj, function(p, value){
+      dl.append($('<dt>').text(p));
+      dl.append($('<dd>').text(value));
+    })
+
+    dl.appendTo($('#box'));
+
+  </script>
+
+
+</body>
+</html>
