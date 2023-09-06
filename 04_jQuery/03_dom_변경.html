@@ -46,18 +46,88 @@
 
 
   <!-- 태그 추가 (부모-자식 관계) -->
+  <div id="box1">
+    <ul id="menu">
+    </ul>
+  </div>
+  <script>
+    
+    /*
+      1. 부모.prepend(자식)   : 첫번째 자식으로 추가하기
+      2. 부모.append(자식)    : 마지막 자식으로 추가하기
+      3. 자식.prependTo(부모) : 첫번째 자식으로 추가하기
+      4. 자식.appendTo(부모)  : 마지막 자식으로 추가하기
+    */
+
+    // 부모 요소 jQuery 객체 생성
+    var menu = $('#menu');
+
+    // 부모 요소에 자식 추가하기
+    menu.prepend('<li id="kimchi">김치</li>');
+    menu.prepend($('<li>').attr('id', 'pizza').text('피자'));
+    menu.append('<li id="donut">도넛</li>');
+    menu.append($('<li>').attr('id', 'pasta').text('파스타'));
+    
+    // 자식 요소를 부모에 추가하기
+    var str = '<li id="coffee">커피</li>';
+    $(str).prependTo(menu);
+    var obj = $('<li>').attr('id', 'ramen').text('라면');
+    obj.appendTo(menu);
+
+  </script>
 
 
   <hr>
 
 
   <!-- 태그 추가 (형제 관계) -->
+  <div id="box2">
+    <ul id="movies">
+      <li id="terminator">터미네이터</li>
+    </ul>
+  </div>
+  <script>
+
+    /*
+      1. 형제.before(형제) : 이전 형제로 추가하기
+      2. 형제.after(형제)  : 다음 형제로 추가하기
+    */
+
+    // 형제 요소 jQuery 객체 생성
+    var item = $('#terminator');
+
+    // 이전 형제로 추가하기
+    item.before('<li id="alien">에일리언</li>');
+    item.before($('<li>').attr('id', 'starwars').text('스타워즈'));
+
+    // 다음 형제로 추가하기
+    var id = 'topgun';
+    var title = '탑건';
+    item.after('<li id="' + id + '">' + title + '</li>');
+    var id = 'avatar';
+    var title = '아바타';
+    item.after($('<li>').attr('id', id).text(title));
+
+  </script>
 
 
   <hr>
 
 
   <!-- 태그 제거 -->
+  <div id="box3">
+    <strong id="s1">Hello World</strong>
+    <strong id="s2">Nice to meet you</strong>
+  </div>
+  <script>
+
+    // 특정 요소만 제거하기
+    $('#s2').remove();
+
+    // 하위 요소 제거하기
+    $('#box3').empty();
+
+  </script>
 
 
 </body>

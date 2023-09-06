@@ -85,12 +85,126 @@
 
 
   <!-- value 속성 -->
+  <p id="p3">
+    <input type="text" placeholder="입력상자">
+    <br>
+    <select>
+      <option value="1">1</option>
+      <option value="2" selected>2</option>
+      <option value="3">3</option>
+    </select>
+    <br>
+    <textarea></textarea>
+  </p>
+  <script>
+
+    /*
+                       | JavaScript         | jQuery
+      -----------------|--------------------|--------------------
+      value 가져오기   | 요소.value         | 요소.val()
+      value 설정하기   | 요소.value = 값    | 요소.val(값)
+    */
+
+    // value 가져오기
+    console.log($('#p3 > select').val());
+
+    // value 설정하기
+    $('#p3 > :text').val('Hello World');
+    $('#p3 > select').val(3);
+    $('#p3 > textarea').val('안녕하세요. 반갑습니다.');
+
+  </script>
 
 
   <hr>
 
 
   <!-- data- 속성 -->
+  <p id="p4">
+    <span id="first"></span>부터 <span id="last"></span>까지
+  </p>
+  <script>
+
+    /*
+                           | jQuery
+      ---------------------|----------------------
+      data-item 가져오기   | 요소.data('item')
+                           |
+      data-item 설정하기   | 요소.data('item', 값)
+                           |
+      data-myName 가져오기 | 요소.data('myName')
+                           | 요소.data('my-name')
+      data-myName 설정하기 | 요소.data('myName', 값)
+                           | 요소.data('my-name', 값)
+      data-my-age 가져오기 | 요소.data('my-age')
+                           | 요소.data('myAge')
+      data-my-age 설정하기 | 요소.data('my-age', 값)
+                           | 요소.data('myAge', 값)
+    */
+
+    // data-속성 설정하기
+    $('#p4').data('range', {'first': 1, 'last': 10});  // data-range="{'first': 1, 'last': 10}"
+
+    // data-속성 가져오기
+    var range = $('#p4').data('range');
+    
+    // data-속성 설정하기
+    $('#first').data('firstNo', range.first).text(range.first);  // data-firstNo="1"
+    $('#last').data('last-no', range.last).text(range.last);     // data-last-no="10"
+
+    // data-속성 가져오기
+    var first = $('#first').data('first-no');
+    var last = $('#last').data('lastNo');
+    console.log(first, last);
+
+    // 모든 data-속성 가져오기
+    console.log($('#first').data());  // {'firstNo': 1}
+    console.log($('#last').data());   // {'lastNo': 10}
+
+  </script>
+
+
+  <hr>
+
+
+  <!-- attribute로 작성한 data-속성에서는 camel case를 사용하지 말자. -->
+  <p id="p5" data-role="admin" data-member-no="1" data-memberName="홍길동">홍길동</p>
+  <script>
+
+    /*
+                           | JavaScript                | jQuery
+      ---------------------|---------------------------|----------------------
+      data-item 가져오기   | 요소.dataset.item         | 요소.data('item')
+      data-item 설정하기   | 요소.dataset.item = 값    | 요소.data('item', 값)
+      data-myName 가져오기 | 요소.dataset.myname       | 요소.data('myname')
+      data-myName 설정하기 | 요소.dataset.myname = 값  | 요소.data('myname', 값)
+      data-my-age 가져오기 | 요소.dataset.myAge        | 요소.data('my-age')
+                           |                           | 요소.data('myAge')
+      data-my-age 설정하기 | 요소.dataset.myAge = 값   | 요소.data('my-age', 값)
+                           |                           | 요소.data('myAge', 값)
+    */
+
+    // jQuery 객체 생성
+    var p5 = $('#p5');
+
+    // data-속성 가져오기
+    console.log(p5.data('role'));        // admin
+    console.log(p5.data('member-no'));   // 1,          p5.data('memberNo')도 가능함
+    console.log(p5.data('memberName'));  // undefined,  p5.data('membername')으로 가능함
+
+  </script>
+
+
+  <hr>
+
+
+  <style>
+    #p6::before {
+      content: attr(data-ho);
+      margin-right: 0.5em;
+    }
+  </style>
+  <p id="p6" data-ho="추사">김정희</p>
 
 
 </body>
