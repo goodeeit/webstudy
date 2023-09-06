@@ -44,7 +44,11 @@
           (1) 등록된 이벤트를 제거한다.
           (2) 형식
             이벤트대상.off('이벤트타입')
-        4) 이벤트타입이 곧 이벤트 메소드
+        4) trigger()
+          (1) 이벤트를 강제로 발생시킨다.
+          (2) 형식
+            이벤트대상.trigger('이벤트타입')
+        5) 이벤트타입이 곧 이벤트 메소드
           (1) 클릭이벤트 : 이벤트대상.click(이벤트리스너)
           (2) 변경이벤트 : 이벤트대상.change(이벤트리스너)
           (3) 키이벤트   : 이벤트대상.keyup(이벤트리스너)
@@ -133,6 +137,33 @@
   <hr>
 
 
+  <!-- 강제 이벤트 발생 -->
+  <div>
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+  </div>
+  <script>
+
+    // jQuery 객체 생성
+    var btn1 = $('#btn1');
+    var btn2 = $('#btn2');
+
+    // btn1의 click 이벤트
+    btn1.click(function(){
+      alert($(this).text() + ' 클릭했다.');
+    })
+
+    // btn2의 click 이벤트 (btn2를 클릭하면 btn1을 클릭하시오.)
+    btn2.click(function(){
+      btn1.trigger('click');  // btn1의 click 이벤트를 강제로 발생시키시오.
+    })
+
+  </script>
+
+
+  <hr>
+
+
   <div class="post" data-post="1">
     <h1 class="title">제목1</h1>
     <div class="content">내용1</div>
@@ -144,10 +175,10 @@
     <input type="button" value="삭제" class="btn_remove1">
   </div>
   <script>
-    var target = $('.btn_remove1').parent();
-    console.log(target);
-    var target = $('.btn_remove1').closest('.post');
-    console.log(target);
+    var btnRemove1 = $('.btn_remove1');
+    btnRemove1.click(function(){
+      alert($(this).closest('.post').data('post'));
+    })
   </script>
 
   <hr>
@@ -163,10 +194,10 @@
     <input type="button" value="삭제" class="btn_remove2">
   </div>
   <script>
-    var target = $('.btn_remove2').prev().prev();
-    console.log(target);
-    var target = $('.btn_remove2').prevAll('.title');
-    console.log(target);
+    var btnRemove2 = $('.btn_remove2');
+    btnRemove2.click(function(){
+      alert($(this).prevAll('.title').data('post'));
+    })
   </script>
 
   <hr>
@@ -182,8 +213,10 @@
     <input type="button" value="삭제" class="btn_remove3">
   </div>
   <script>
-    var target = $('.btn_remove3').prev();
-    console.log(target);
+    var btnRemove3 = $('.btn_remove3');
+    btnRemove3.click(function(){
+      alert($(this).prev().data('post'));
+    })
   </script>
 
   <hr>
@@ -199,8 +232,10 @@
     <input type="button" value="삭제" class="btn_remove4" data-post="2">
   </div>
   <script>
-    var target = $('.btn_remove4');
-    console.log(target);
+    var btnRemove4 = $('.btn_remove4');
+    btnRemove4.click(function(){
+      alert($(this).data('post'));
+    })
   </script>
 
   <hr>
@@ -218,8 +253,10 @@
     <input type="hidden" value="2">
   </div>
   <script>
-    var target = $('.btn_remove5').next();
-    console.log(target);
+    var btnRemove5 = $('.btn_remove5');
+    btnRemove5.click(function(){
+      alert($(this).next().val());
+    })
   </script>
 
 
