@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  
+
+  <div id="box1">
+    <button id="btn1">XML요청1</button>
+  </div>
+  <script>
+    $('#btn1').click(function(){
+      $.ajax({
+        /* 요청 */
+        type: 'get',          // RequestMethod : get 또는 post
+        url: 'product1.xml',  // 요청 URL (서버 경로 작성)
+        async: true,          // 비동기 통신(디폴트, 생략 가능)
+        /* 응답 */
+        dataType: 'xml',             // 응답 데이터의 타입(text, xml, json 등)
+        success: function(resData){  // 매개변수 resData로 응답 데이터가 전달됨 (resData = xhr.responseXML 또는 resData = xhr.responseText)
+          // 기존 목록 제거하기
+          $('#box1').find('ul').remove();
+          // resData에서 <product> 태그만 가져오기
+          var product = $(resData).find('product');  // JavaScript는 var product = resData.getElementsByTagName('product');
+          $.each(product, function(i, elem){
+            // <ul> 태그를 jQuery 객체로 생성
+            var ul = $('<ul>');
+            // <ul> 태그에 <li> 태그 만들어 넣기
+            ul.append($('<li>').text($(elem).find('model').text()));
+            ul.append($('<li>').text($(elem).find('maker').text()));
+            ul.append($('<li>').text($(elem).find('price').text()));
+            // <div id="box1">에 <ul> 태그 넣기
+            $('#box1').append(ul);
+          })
+        },
+        error: function(jqXHR){  // jqXHR 객체 : 에러에 관한 정보를 담고 있는 객체
+          // <div id="box1"> 태그를 jQuery 객체로 가져옴
+          var box1 = $('#box1');
+          box1.append($('<div>').text('응답코드 ' + jqXHR.status));
+          box1.append($('<div>').text('응답코드 텍스트 ' + jqXHR.statusText));
+          box1.append($('<div>').text('응답 텍스트 ' + jqXHR.responseText));
+        }
+      })
+    })
+  </script>
+
+
+  <hr>
+
+
+  <div id="box2">
+    <button id="btn2">XML요청2</button>
+  </div>
+  <script>
+    $('#btn2').click(function(){
+      $.ajax({
+        /* 요청 */
+        type: 'get',
+        url: 'product2.xml',
+        async: true,
+        /* 응답 */
+        dataType: 'xml',
+        success: function(resData){
+          // <div class="product_list"> 태그를 jQuery 객체로 만들기
+          var productList = $('<div>').addClass('product_list');
+          // resData에서 <product> 태그를 가져온 뒤 순회하기
+          $.each($(resData).find('product'), function(i, elem){
+            // <div class="product"> 태그를 jQuery 객체로 만들기
+            var div = $('<div>').addClass('product');
+            // <div class="product"> 태그에 model, maker, price 속성(attribute)값 넣기
+            div.append($('<strong>').text($(elem).attr('model')));
+            div.append($('<em>').text($(elem).attr('maker')));
+            div.append($('<mark>').text($(elem).attr('price')));
+            // <div class="product_list"> 태그에 <div class="product"> 태그 넣기
+            productList.append(div);
+            // <div id="box2"> 태그에 <div class="product_list"> 태그 넣기
+            $('#box2').append(productList);
+          })
+        },
+        error: function(jqXHR){
+          alert(jqXHR.status + '(' + jqXHR.statusText + ')');
+        }
+      })
+    })
+  </script>
+  <style>
+    #box2 div {
+      box-sizing: border-box;
+      border: 1px solid gray;
+    }
+    #box2 .product_list {
+      width: 400px;
+      display: flex;
+      justify-content: space-between;
+    }
+    #box2 .product {
+      width: 100px;
+      padding: 20px 10px;
+      text-align: center;
+    }
+    #box2 .product * {
+      display: block;
+    }
+  </style>
+
+
+
+
+
+</body>
+</html>
