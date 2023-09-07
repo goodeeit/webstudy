@@ -65,6 +65,8 @@
         /* 응답 */
         dataType: 'xml',
         success: function(resData){
+          // 기존 목록 제거하기
+          $('#box2').find('div').remove();
           // <div class="product_list"> 태그를 jQuery 객체로 만들기
           var productList = $('<div>').addClass('product_list');
           // resData에서 <product> 태그를 가져온 뒤 순회하기
@@ -108,7 +110,63 @@
   </style>
 
 
+  <hr>
 
+
+  <div id="box3">
+    <button id="btn3">JSON요청1</button>
+  </div>
+  <script>
+    $('#btn3').click(function(){
+      $.ajax({
+        /* 요청 */
+        type: 'get',
+        url: 'product1.json',
+        async: true,
+        /* 응답 */
+        dataType: 'json',
+        success: function(resData){         // resData = JSON.parse(xhr.responseText)
+          $('#box3').find('div').remove();  // 기존 목록 제거하기
+          myFunc1(resData);                 // myFunc1 함수 호출
+        },
+        error: function(jqXHR){
+          alert(jqXHR.status + '(' + jqXHR.statusText + ')');
+        }
+      })
+    })
+    // myFunc1 함수 정의
+    function myFunc1(resData){
+      var productList = $('<div>').addClass('product_list');
+      $.each(resData, function(i, elem){
+        var ul = $('<ul>').addClass('product');
+        ul.append($('<li>').text(elem.maker));
+        ul.append($('<li>').text(elem.model));
+        ul.append($('<li>').text(elem.price));
+        productList.append(ul);
+      })
+      $('#box3').append(productList);
+    }
+  </script>
+  <style>
+    #box3 * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    #box3 .product_list {
+      width: 400px;
+      display: flex;
+      justify-content: space-around;
+      border: 1px solid crimson;
+    }
+    #box3 .product {
+      list-style-type: none;
+      width: 100px;
+      padding: 20px 10px;
+      text-align: center;
+      border: 1px solid gray;
+    }
+  </style>
 
 
 </body>
