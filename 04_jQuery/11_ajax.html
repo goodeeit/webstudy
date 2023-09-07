@@ -169,5 +169,56 @@
   </style>
 
 
+  <hr>
+
+
+  <div id="box4">
+    <button id="btn4">JSON요청2</button>
+  </div>
+  <script>
+    $('#btn4').click(function(){
+      $.ajax({
+        /* 요청 */
+        type: 'get',
+        url: 'product2.json',
+        async: true,
+        /* 응답 */
+        dataType: 'json',
+        success: function(resData){           // resData = JSON.parse(xhr.responseText)
+          $('#box4').find('table').remove();  // 기존 테이블 제거하기
+          myFunc2(resData);                   // myFunc2 함수 호출
+        },
+        error: function(jqXHR){
+          alert(jqXHR.status + '(' + jqXHR.statusText + ')');
+        }
+      })
+    })
+    // myFunc2 함수 정의
+    function myFunc2(resData){
+      var table = $('<table border="1"><thead><tr><td>순번</td><td>제조사</td><td>상품</td><td>가격</td></tr></thead><tbody>');
+      $.each(resData.products, function(i, elem){
+        var tr = $('<tr>');
+        tr.append($('<td>').text(i + 1));
+        tr.append($('<td>').text(elem.maker));
+        tr.append($('<td>').text(elem.model));
+        tr.append($('<td>').text(elem.price));
+        table.append(tr);
+      })
+      $('#box4').append(table);
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
