@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    /* CSS 초기화 */
+    * {
+      padding: 0;
+      margin: 0;
+      color: #333333;
+      box-sizing: border-box;
+    }
+    ul, li, ol, dl {
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    button {
+      cursor: pointer;
+      border: 0;
+    }
+
+    /* 본문 */
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF;
+    }
+    .container-doc {
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+    }
+    .container-doc::before {
+      content: '상단여백영역입니다.';
+      display: block;
+      height: 90px;
+    }
+    .inner-container {
+      height: 100%;
+    }
+    .doc-main {
+      padding-top: 50px;
+    }
+    .login-kakao {
+      display: block;
+      width: 88px;
+      height: 27px;
+      margin: 0 auto;
+      background: url('https://accounts.kakaocdn.net/images/pc/logo_kakao.png') no-repeat 0 0;
+      background-size: 100px 80px;
+    }
+    .content-article {
+      width: 580px;
+      height: 100%;
+      margin: 40px auto 42px;
+      padding: 0 69px;
+      border: 1px solid rgba(0,0,0,0.12);
+      font-size: 12px;
+    }
+    .content-article > [class^=cont-]{
+      padding: 55px 0 50px;
+    }
+    .login-kakaomail .box-tf.fst {
+      margin-top: 4px;
+    }
+    .login-kakaomail .box-tf {
+      margin-bottom: 3px;
+      border-bottom: 2px solid #CCCCCC;
+    }
+    .screen-out {
+      display: block;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    .tf-g {
+      width: 100%;
+      height: 45px;
+      padding: 10px 0 8px;
+      border: 0;
+      outline: 0;
+      font-size: 18px;
+      color: #191919;
+      line-height: 27px;
+    }
+    .set-login {
+      margin-top: 25px;
+    }
+    .item-choice {
+      float: left;
+    }
+    .item-choice::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .inp-choice {
+      appearance: none;
+    }
+    .lab-choice {
+      font-size: 14px;
+      color: rgba(0,0,0,0.7);
+      cursor: pointer;
+      padding-left: 28px;
+      position: relative;
+    }
+    .ico-comm {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: url('https://accounts.kakaocdn.net/images/pc/ico_comm.png') no-repeat 0 0;
+      background-size: 300px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .ico-check {
+      background-position: 0 0;
+    }
+    .inp-choice:checked + .lab-choice .ico-check {
+      background-position: -25px 0;
+    }
+    .confirm-btn {
+      padding-top: 40px;
+      text-align: center;
+    }
+    .btn-g {
+      display: block;
+      width: 100%;
+      height: 50px;
+      border-radius: 4px;
+      font-weight: 500;
+      color:#191919;
+    }
+    .btn-g:hover {
+      background-color: #EBEBEB;
+    }
+    .btn-g:active {
+      background-color: #E5E5E5;
+    }
+    .btn-g.highlight {
+      background-color: #FEE500;
+    }
+    .btn-g.highlight:hover {
+      background-color: #FADA0A;
+    }
+    .btn-g.highlight:active {
+      background-color: #F2D00F;
+    }
+    .line-or {
+      display: block;
+      width: 100%;
+      padding: 15px 0;
+    }
+    .line-or::before, .line-or::after {
+      content: '';
+      display: inline-block;
+      width: calc(50% - 40px);
+      height: 1px;
+      background-color: rgba(0,0,0,0.06);
+      margin: 6px;
+    }
+    .txt-or {
+      display: inline-block;
+      width: 40px;
+    }
+    .info-user {
+      margin-top: 26px;
+    }
+    .link-join {
+      float: left;
+    }
+    .list-user {
+      float: right;
+      width: 150px;
+      display: flow-root;
+    }
+    .list-user li::before {
+      content: '';
+      float: left;
+      width: 1px;
+      height: 10px;
+      margin: 4px 10px;
+      background-color: rgba(0,0,0,0.08);
+    }
+    .list-user li:first-of-type::before {
+      display: none;
+    }
+    .list-user li {
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container-doc">
+    <div class="inner-container">
+      <div class="doc-main">
+        <div class="doc-title">
+          <h1 class="*tit-service">
+            <span class="login-kakao">
+              <span class="*ir_wa">Kakao</span>
+            </span>
+          </h1>
+        </div>
+        <article class="content-article">
+          <div class="cont-login">
+            <div class="login-kakaomail">
+              <form>
+                <div class="box-tf fst">
+                  <label for="loginKey--1" class="screen-out">계정정보 입력</label>
+                  <input type="text" id="loginKey--1" placeholder="카카오메일 아이디, 이메일, 전화번호" class="tf-g">
+                </div>
+                <div class="box-tf">
+                  <label for="password--2" class="screen-out">비밀번호 입력</label>
+                  <input type="password" id="password--2" placeholder="비밀번호" class="tf-g" autocomplete="off">
+                </div>
+                <div class="set-login">
+                  <div class="item-choice">
+                    <input type="checkbox" id="saveSignedIn" class="inp-choice">
+                    <label for="saveSignedIn" class="lab-choice">
+                      <span class="ico-comm ico-check"></span>
+                      간편로그인 정보 저장
+                    </label>
+                  </div>
+                </div>
+                <div class="confirm-btn">
+                  <button type="submit" class="btn-g highlight submit">로그인</button>
+                  <span class="line-or">
+                    <span class="txt-or">또는</span>
+                  </span>
+                  <button type="button" class="btn-g">QR코드 로그인</button>
+                </div>
+              </form>
+              <div class="info-user">
+                <a href="#" class="link-join">회원가입</a>
+                <ul class="list-user">
+                  <li><a href="#" class="link-user">계정 찾기</a></li>
+                  <li><a href="#" class="link-user">비밀번호 찾기</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
