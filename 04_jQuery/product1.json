@@ -1,0 +1,17 @@
+[
+  {
+    "maker":"삼성",
+    "price":100,
+    "model":"세탁기"
+  },
+  {
+    "maker":"LG",
+    "price":200,
+    "model":"냉장고"
+  },
+  {
+    "maker":"삼성",
+    "price":300,
+    "model":"TV"
+  }
+]

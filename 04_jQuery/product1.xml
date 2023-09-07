@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product>
+        <model>세탁기</model>
+        <maker>삼성</maker>
+        <price>100</price>
+    </product>
+    <product>
+        <model>냉장고</model>
+        <maker>LG</maker>
+        <price>200</price>
+    </product>
+    <product>
+        <model>TV</model>
+        <maker>삼성</maker>
+        <price>300</price>
+    </product>
+</products>

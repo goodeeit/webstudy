@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product model="세탁기" maker="삼성" price="100" />
+    <product model="냉장고" maker="LG" price="200" />
+    <product model="TV" maker="삼성" price="300" />
+</products>
