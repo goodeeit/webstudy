@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+  <div id="a">내부텍스트</div>
+  <script>
+    console.log(document.getElementById('a'));
+    console.log($('#a'));
+    console.log(document.getElementById('a').textContent);
+    console.log($('#a').text());
+  </script>
+
+  <style>
+    #b a {
+      text-decoration: none;
+    }
+  </style>
+  <div id="b">
+    <a href="https://www.naver.com/">네이버</a>
+  </div>
+  <script>
+    document.querySelector("#b a").textContent = '구글';
+    $('#b a').text('구글');
+    document.querySelector("#b a").setAttribute('href', 'https://www.google.com/');
+    $('#b a').attr('href', 'https://www.google.com/');
+  </script>
+
+  <div id="c">
+    <input type="text">
+  </div>
+  <script>
+    // document.querySelector('#c input').value = '홍길동';                 // 객체.value : value 프로퍼티(객체 속성)
+    // document.querySelector('#c input').setAttribute('value', '아이유');  // 객체.setAttribute('value', '') : value 애트리뷰트(태그 속성)
+    // $('#c input').prop('value', '홍길동');
+    // $('#c input').attr('value', '아이유');
+    $('#c input').val('홍길동');  // 프로퍼티(not 애트리뷰트) 수정
+  </script>
+
+  <!-- 지난 평가 -->
+  <div>
+    <form id="frm1" method="post">
+      <div>
+        <input type="text" id="user_id">
+      </div>
+      <div id="user_id_msg"></div>
+      <div>
+        <input type="password" id="user_pw">
+      </div>
+      <div>
+        <button type="submit">로그인</button>
+      </div>
+    </form>
+  </div>
+  <script>
+
+    // 아이디를 입력할때마다 동작하는 keyup 이벤트
+    $('#user_id').keyup(function(){
+      var userId = $(this).val();  // 입력된 아이디
+      if(userId.length === 0){
+        $('#user_id_msg').text('');
+      }else if(userId.length < 4){
+        $('#user_id_msg').text('아이디는 4자 이상입니다.');
+      }else{
+        $('#user_id_msg').text('정상적인 아이디입니다.');
+      }
+    });
+
+  </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
