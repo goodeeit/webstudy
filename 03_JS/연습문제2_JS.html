@@ -13,7 +13,16 @@
     <div><button id="btn_switch" style="width: 50px; text-align: center;">ON</button></div>
   </div>
   <script>
-
+    var img = document.querySelector('#box1 img');
+    document.getElementById('btn_switch').addEventListener('click', function(){
+      if(this.textContent == 'ON') {
+        this.textContent = 'OFF';
+        img.src = '../../assets/image/light2.png';
+      } else {
+        this.textContent = 'ON';
+        img.src = '../../assets/image/light1.png';
+      }
+    })
   </script>
 
   <hr>
@@ -40,7 +49,47 @@
     }
   </style>
   <script>
+    // 사용할 문서객체
+    var imgNo = document.getElementById('img_no');
+    var imgBox = document.getElementById('img_box');
 
+    // 배열과 인덱스
+    var idx = 0;  // 초기 인덱스 0
+    var slideImage = ['animal1.jpg', 'animal2.jpg', 'animal3.jpg', 'animal4.jpg', 'animal5.jpg', 'animal6.jpg', 'animal7.jpg', 'animal8.jpg', 'animal9.jpg', 'animal10.jpg'];
+
+    // 초기 이미지
+    imgBox.style['background-image'] = 'url(../../assets/image/' + slideImage[0] + ')';
+
+    // 초기 이미지 번호
+    imgNo.textContent = '1 / ' + slideImage.length;
+
+    // 이미지 변경 함수
+    function changeImg(n) {
+      // 인덱스 갱신
+      idx += n;
+      // 첫 이미지에서 이전 버튼을 누른 경우 마지막 이미지가 열림
+      if(idx == -1) {
+        idx = slideImage.length - 1;
+      }
+      // 마지막 이미지에서 다음 버튼을 누른 경우 첫 이미지가 열림
+      if(idx == slideImage.length) {
+        idx = 0;
+      }
+      // 이미지 번호 변경
+      imgNo.textContent = (idx + 1) + ' / ' + slideImage.length;
+      // 이미지 변경
+      imgBox.style['background-image'] = 'url(../../assets/image/' + slideImage[idx] + ')';
+    }
+
+    // 이전 버튼 이벤트
+    document.getElementById('btn_prev').addEventListener('click', function(){
+      changeImg(-1);  // 변경할 인덱스를 전달
+    })
+
+    // 다음 버튼 이벤트
+    document.getElementById('btn_next').addEventListener('click', function(){
+      changeImg(1);   // 변경할 인덱스를 전달
+    })
   </script>
 
   <hr>
@@ -80,7 +129,40 @@
     }
   </style>
   <script>
+    // 문서객체
+    var origin = document.getElementById('origin');
+    var thumbnails = document.getElementById('thumbnails');
 
+    // 배열과 인덱스
+    var idx = 0;
+    var images = ['fruit1.jpg', 'fruit2.jpg', 'fruit3.jpg', 'fruit4.jpg', 'fruit5.jpg'];
+
+    // 초기 origin
+    origin.style['background-image'] = 'url(../../assets/image/' + images[0] + ')';
+    
+    // 썸네일 이미지를 나타낸 <li> 추가
+    var str = '';
+    for(let i = 0; i < images.length; i++) {
+      str += '<li></li>';
+    }
+    thumbnails.innerHTML = str;
+
+    // <li> 태그마다 썸네일 이미지 넣기
+    var list = document.querySelectorAll('#thumbnails > li');
+    for(let i = 0; i < list.length; i++) {
+      list[i].style['background-image'] = 'url(../../assets/image/' + images[i] + ')';
+    }
+
+    // 썸네일 이미지를 선택하면 원본이 변경되는 이벤트 처리
+    for(let i = 0; i < list.length; i++) {
+      list[i].addEventListener('mouseover', function(){
+        origin.style['background-image'] = 'url(../../assets/image/' + images[i] + ')';
+        this.style['border'] = '5px solid orange';
+      })
+      list[i].addEventListener('mouseout', function(){
+        this.style['border'] = '5px solid rgba(0,0,0,0)';
+      })
+    }
   </script>
 
   <hr>
@@ -117,12 +199,34 @@
     #box4 > div input[type=checkbox] {
       display: none;
     }
-    #box4 label.checked {
+    #box4 #chk_all:checked + label, #box4 .chk_each:checked + label {
       background-image: url(../../assets/image/check2.png);
     }
   </style>
   <script>
+    // 전체선택 문서객체
+    var chkAll = document.getElementById('chk_all');
 
+    // 모든 개별선택 문서객체
+    var chkEach = document.getElementsByClassName('chk_each');
+
+    // 1. 전체선택을 클릭하면 전체선택의 체크상태를 개별선택들도 동일하게 가진다.
+    chkAll.addEventListener('click', function(){
+      for(let i = 0; i < chkEach.length; i++){
+        chkEach[i].checked = this.checked;
+      }
+    })
+
+    // 2. 개별선택을 클릭하면 모든 개별선택의 체크상태를 확인해서 모두 체크되어 있으면 전체선택을 체크하고 아니면 전체선택을 해제한다.
+    for(let i = 0; i < chkEach.length; i++){
+      chkEach[i].addEventListener('click', function(){
+        let total = 0;
+        for(let j = 0; j < chkEach.length; j++){
+          total += chkEach[j].checked;  // 체크된 경우 total += 1, 해제된 경우 total += 0으로 동작한다.
+        }
+        chkAll.checked = (total === chkEach.length);
+      });
+    }
   </script>
 
   <hr>
@@ -150,7 +254,18 @@
     // 버튼상태 : '정답보기' <-> '정답숨기기' 변환
     // 정답     :  안보임    <->  보임        변환
     // data-state="hide"이면 안보임 상태이고, data-state="show"이면 보임 상태로 처리할 것
-    
+    var answer = document.getElementById('answer');
+    document.getElementById('btn_answer').addEventListener('click', function(){
+      if (this.dataset.state == 'hide') {
+        this.value = '정답숨기기';
+        this.dataset.state = 'show';
+        answer.style.display = 'inline';
+      } else if (this.dataset.state == 'show') {
+        this.value = '정답보기';
+        this.dataset.state = 'hide';
+        answer.style.display = 'none';
+      }
+    })    
   </script>
 
   <hr>
@@ -165,7 +280,12 @@
     // 문제6. 아래 배열의 요소를 임의로 하나씩 선택해서 추첨 버튼을 클릭할때마다 배열에서 제거하시오.
     // 배열에서 제거된 메뉴는 선택 메뉴에서 표시하고 배열에 있는 메뉴는 남은 메뉴에서 표시하시오.
     var menu = ['제육', '순두부', '국수', '피자', '순대국', '족발'];
-    
+    document.getElementById('menu_list').textContent = menu;
+    document.getElementById('btn_pick').addEventListener('click', function(){
+      let i = Math.floor(Math.random() * menu.length);
+      document.getElementById('pick').innerHTML += menu.splice(i, 1) + '&nbsp;';
+      document.getElementById('menu_list').textContent = menu;
+    })    
   </script>
 
   <hr>
@@ -177,7 +297,14 @@
   </div>
   <script>
     // 문제7. 오직 한글만 검색할 수 있도록 처리하시오.
-    
+    document.getElementById('btn_naver_search').addEventListener('click', function(){
+      var query = document.getElementById('query').value;
+      if(!/^[가-힣]+$/.test(query)){
+        alert('오직 한글만 검색할 수 있습니다.');
+        return;
+      } 
+      location.href = 'https://search.naver.com/search.naver?query=' + query;
+    })    
   </script>
 
 </body>
