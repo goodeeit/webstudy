@@ -11,16 +11,17 @@
   <!-- 1. 버튼을 누르면 전구 이미지가 바뀐다. -->
   <div id="box1">
     <div><img src="../../assets/image/light1.png" width="50px"></div>
-    <div><button id="btn_switch" style="width: 50px; text-align: center;">ON</button></div>
+    <div><button id="btn_switch" style="width: 50px; text-align: center;" class="off">ON</button></div>
   </div>
   <script>
     $('#btn_switch').click(function(){
-      if($(this).text() === 'ON') {
-        $(this).text('OFF');
-        $('#box1').find('img').attr('src', '../../assets/image/light2.png');
-      } else {
+      $(this).toggleClass("off");
+      if($(this).hasClass("off")) {
         $(this).text('ON');
         $('#box1').find('img').attr('src', '../../assets/image/light1.png');
+      } else {
+        $(this).text('OFF');
+        $('#box1').find('img').attr('src', '../../assets/image/light2.png');
       }
     })
   </script>
