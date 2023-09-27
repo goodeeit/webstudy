@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     
@@ -13,7 +14,15 @@
     <div><button id="btn_switch" style="width: 50px; text-align: center;">ON</button></div>
   </div>
   <script>
-
+    $('#btn_switch').click(function(){
+      if($(this).text() === 'ON') {
+        $(this).text('OFF');
+        $('#box1').find('img').attr('src', '../../assets/image/light2.png');
+      } else {
+        $(this).text('ON');
+        $('#box1').find('img').attr('src', '../../assets/image/light1.png');
+      }
+    })
   </script>
 
   <hr>
@@ -21,9 +30,9 @@
   <!-- 2. animal1.jpg ~ animal10.jpg 이미지 슬라이드 -->
   <div id="box2">
     <div>
-      <button id="btn_prev">이전</button>
+      <button class="btn_move" data-step="-1">이전</button>
       <span id="img_no"></span>
-      <button id="btn_next">다음</button>
+      <button class="btn_move" data-step="1">다음</button>
     </div>
     <div id="img_box"></div>
   </div>
@@ -40,7 +49,42 @@
     }
   </style>
   <script>
+    // 사용할 문서객체
+    var imgNo = $('#img_no');
+    var imgBox = $('#img_box');
 
+    // 배열과 인덱스
+    var idx = 0;  // 초기 인덱스 0
+    var slideImage = ['animal1.jpg', 'animal2.jpg', 'animal3.jpg', 'animal4.jpg', 'animal5.jpg', 'animal6.jpg', 'animal7.jpg', 'animal8.jpg', 'animal9.jpg', 'animal10.jpg'];
+
+    // 초기 이미지
+    imgBox.css('background-image', 'url(../../assets/image/' + slideImage[0] + ')');
+
+    // 초기 이미지 번호
+    imgNo.text('1 / ' + slideImage.length);
+
+    // 이미지 변경 함수
+    function changeImg(n) {
+      // 인덱스 갱신
+      idx += n;
+      // 첫 이미지에서 이전 버튼을 누른 경우 마지막 이미지가 열림
+      if(idx == -1) {
+        idx = slideImage.length - 1;
+      }
+      // 마지막 이미지에서 다음 버튼을 누른 경우 첫 이미지가 열림
+      if(idx == slideImage.length) {
+        idx = 0;
+      }
+      // 이미지 번호 변경
+      imgNo.text((idx + 1) + ' / ' + slideImage.length);
+      // 이미지 변경
+      imgBox.css('background-image', 'url(../../assets/image/' + slideImage[idx] + ')');
+    }
+
+    // 이전/다음 버튼 이벤트
+    $('.btn_move').click(function(){
+      changeImg($(this).data('step'));  // 변경할 인덱스를 전달
+    })
   </script>
 
   <hr>
@@ -80,7 +124,30 @@
     }
   </style>
   <script>
+    // 문서객체
+    var origin = $('#origin');
+    var thumbnails = $('#thumbnails');
 
+    // 배열과 인덱스
+    var idx = 0;
+    var images = ['fruit1.jpg', 'fruit2.jpg', 'fruit3.jpg', 'fruit4.jpg', 'fruit5.jpg'];
+
+    // 초기 origin
+    origin.css('background-image', 'url(../../assets/image/' + images[0] + ')');
+    
+    // 썸네일 이미지를 나타낸 <li> 추가
+    $.each(images, function(i, elem){
+      thumbnails.append($('<li class="thumbnail">').css('background-image', 'url(../../assets/image/' + elem + ')'));
+    })
+
+    // 썸네일 이미지를 선택하면 원본이 변경되는 이벤트 처리
+    $('.thumbnail').mouseover(function(){
+      origin.css('background-image', $(this).css('background-image'));
+      $(this).css('border', '5px solid orange');
+    })
+    $('.thumbnail').mouseout(function(){
+      $(this).css('border', '5px solid rgba(0,0,0,0)');
+    })
   </script>
 
   <hr>
@@ -117,12 +184,30 @@
     #box4 > div input[type=checkbox] {
       display: none;
     }
-    #box4 label.checked {
+    #box4 #chk_all:checked + label, #box4 .chk_each:checked + label {
       background-image: url(../../assets/image/check2.png);
     }
   </style>
   <script>
+    // 전체선택 문서객체
+    var chkAll = $('#chk_all');
 
+    // 모든 개별선택 문서객체
+    var chkEach = $('.chk_each');
+
+    // 1. 전체선택을 클릭하면 전체선택의 체크상태를 개별선택들도 동일하게 가진다.
+    chkAll.click(function(){
+      chkEach.prop('checked', $(this).prop('checked'));
+    })
+
+    // 2. 개별선택을 클릭하면 모든 개별선택의 체크상태를 확인해서 모두 체크되어 있으면 전체선택을 체크하고 아니면 전체선택을 해제한다.
+    chkEach.click(function(){
+      let total = 0;
+      $.each(chkEach, function(i, elem){
+        total += $(elem).prop('checked');  // 체크된 경우 total += 1, 해제된 경우 total += 0으로 동작한다.
+      })
+      chkAll.prop('checked', total === chkEach.length);
+    })
   </script>
 
   <hr>
@@ -136,7 +221,7 @@
       <li>CSS</li>
       <li>HTML</li>
     </ol>
-    <input type="button" value="정답보기" id="btn_answer" data-state="hide">
+    <input type="button" value="정답보기" id="btn_answer" class="hide">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span id="answer">2</span>
   </div>
@@ -149,8 +234,16 @@
     // 문제5. 버튼을 클릭하면 아래와 같이 동작하도록 구현하시오.
     // 버튼상태 : '정답보기' <-> '정답숨기기' 변환
     // 정답     :  안보임    <->  보임        변환
-    // data-state="hide"이면 안보임 상태이고, data-state="show"이면 보임 상태로 처리할 것
-    
+    $('#btn_answer').click(function(){
+      $(this).toggleClass('hide');
+      if($(this).hasClass('hide')){
+        $(this).val('정답보기');
+        $('#answer').hide();
+      } else {
+        $(this).val('정답숨기기');
+        $('#answer').show();
+      }
+    })
   </script>
 
   <hr>
@@ -165,7 +258,12 @@
     // 문제6. 아래 배열의 요소를 임의로 하나씩 선택해서 추첨 버튼을 클릭할때마다 배열에서 제거하시오.
     // 배열에서 제거된 메뉴는 선택 메뉴에서 표시하고 배열에 있는 메뉴는 남은 메뉴에서 표시하시오.
     var menu = ['제육', '순두부', '국수', '피자', '순대국', '족발'];
-    
+    $('#menu_list').text(menu);
+    $('#btn_pick').click(function(){
+      let i = Math.floor(Math.random() * menu.length);
+      $('#pick').append(menu.splice(i, 1) + '&nbsp;');
+      $('#menu_list').text(menu);
+    })
   </script>
 
   <hr>
@@ -177,7 +275,14 @@
   </div>
   <script>
     // 문제7. 오직 한글만 검색할 수 있도록 처리하시오.
-    
+    $('#btn_naver_search').click(function(){
+      var query = $('#query').val();
+      if(!/^[가-힣]+$/.test(query)){
+        alert('오직 한글만 검색할 수 있습니다.');
+        return;
+      } 
+      location.href = 'https://search.naver.com/search.naver?query=' + query;
+    })   
   </script>
 
 </body>
